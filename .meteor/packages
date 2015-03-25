@@ -26,3 +26,6 @@ semantic:ui-css
 chriswessels:hammer
 ccorcos:transitioner
 velocityjs:velocityjs
+autopublish
+momentjs:moment
+mrt:moment-timezone

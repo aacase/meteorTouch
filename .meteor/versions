@@ -4,6 +4,7 @@ aldeed:collection2@2.3.2
 aldeed:simple-schema@1.3.0
 aldeed:template-extension@3.1.1
 audit-argument-checks@1.0.3
+autopublish@1.0.3
 autoupdate@1.2.0
 base64@1.0.3
 binary-heap@1.0.3
@@ -56,7 +57,10 @@ meteorhacks:picker@1.0.1
 minifiers@1.1.4
 minimongo@1.0.7
 mobile-status-bar@1.0.3
+momentjs:moment@2.9.0
 mongo@1.1.0
+mrt:moment@2.8.1
+mrt:moment-timezone@0.2.1
 natestrauser:animate-css@3.1.2
 npm-bcrypt@0.7.8_1
 observe-sequence@1.0.5
