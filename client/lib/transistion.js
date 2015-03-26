@@ -156,8 +156,8 @@ Transitioner.transition({
 });
 
 Transitioner.transition({
-  fromRoute: 'slideLeft',
-  toRoute: 'main',
+  fromRoute: 'homescreen',
+  toRoute: 'launch',
   velocityAnimation: {
     "in": 'transition.pushRightIn',
     out: 'transition.pushLeftOut'
