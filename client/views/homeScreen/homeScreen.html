@@ -2,12 +2,27 @@
 <div class="container homeContainer">
 	<div class="ui grid">
 		<div class="three wide column noPaddingRight shadowCat">
+			{{#if homeScreen}}
 			<div class="row">
 				<div class="sixteen wide column sideNav odd" id="launchButton"><div class="center aligned"><h1><i class=" space shuttle icon"></i></h1></div><div class='center aligned'>Launch</div></div>
-				<div class="sixteen wide column sideNav even"><div class="center aligned"><h1><i class=" user icon"></i></h1></div><div class='center aligned'>My Info</div></div>
+				<div class="sixteen wide column sideNav even" id="myInfo"><div class="center aligned"><h1><i class=" user icon"></i></h1></div><div class='center aligned'>My Info</div></div>
 				<div class="sixteen wide column sideNav odd"><div class="center aligned"><h1><i class=" volume up icon"></i></h1></div><div class='center aligned'>Volume</div></div>
 				<div class="sixteen wide column sideNav even " id="dndButton"><div class="center aligned" id="dndText"><h1><i class=" dont icon"></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>
 			</div>
+			{{/if}}
+			{{#if backScreen}}
+			<div class="sixteen wide column  odd fullHeight" id='backButton'><div class=" halfDown"><h1><i class=" arrow circle left icon directoryIcon"></i></h1></div><div class='center aligned'></div></div>
+			{{/if}}
+			{{#if callUI}}
+			<div class="row">
+				<div class="sixteen wide column sideNav odd" id="launchButton"><div class="center aligned"><h1><i class=" space shuttle icon"></i></h1></div><div class='center aligned'>Call</div></div>
+				<div class="sixteen wide column sideNav even" id="myInfo"><div class="center aligned"><h1><i class=" user icon"></i></h1></div><div class='center aligned'>UI</div></div>
+				<div class="sixteen wide column sideNav odd"><div class="center aligned"><h1><i class=" volume up icon"></i></h1></div><div class='center aligned'>is</div></div>
+				<div class="sixteen wide column sideNav even " id="dndButton"><div class="center aligned" id="dndText"><h1><i class=" dont icon"></i></h1></div><div class='center aligned' id='dndText2'>Active</div></div>
+			</div>
+			{{/if}}
+			
+
 		</div>
 		<div class="thirteen wide column noPadding ">
 			<div class="statusBar noShadow">
@@ -15,20 +30,46 @@
 				<div class="ui  grid">
 					<div class="row">
 						<div class="thirteen wide column">
-							<div class="right aligned">Home</div>
+							<div class="right aligned">{{location}}</div>
 						</div>
-						<div class="column"><div class="right aligned"><i class="dont icon pukeGreen"></i></div></div>
+						<div class="column"><div class="right aligned">{{{icon}}}</div></div>
 						<div class="column"><div class="right aligned"><i class="record icon pukeGreen"></i></div></div>
 					</div>
 				</div>
 			</div>
+			{{#if myInfo}}
 			<div class="features ui grid noMargin">
-				<div class="four wide column greyOdd">Stuff here</div>
+				<div class="four wide column greyOdd" id="myInfo">My info Panel</div>
 				<div class="four wide column greyEven">More stuff</div>
 				<div class="four wide column greyOdd">Calls n stuff</div>
 				<div class="four wide column greyEven">Testing look</div>
 
 			</div>
+			{{/if}}
+			{{#if homeScreen}}
+			<div class="features ui grid noMargin">
+				<div class="four wide column greyOdd" id="call">Call</div>
+				<div class="four wide column greyEven" id="present">Present</div>
+				<div class="four wide column greyOdd">Record</div>
+				<div class="four wide column greyEven">Move</div>
+
+			</div>
+			{{/if}}
+			{{#if directory}}
+				This is the Directory View
+			{{/if}}
+
+			{{#if call}}
+				<div class="features ui grid noMargin">
+					<div class="four wide column greyOdd" id="recents">Recents</div>
+					<div class="four wide column activePurple" id="favorites">Favorites</div>
+					<div class="four wide column greyOdd" id="meetings">Meetings</div>
+					<div class="four wide column greyEven" id='directory'>Directory</div>
+					<div class="four wide column greyEven">Keypad</div>
+
+				</div>
+			{{/if}}
+
 
 		</div>
 		
