@@ -156,7 +156,7 @@ Transitioner.transition({
 });
 
 Transitioner.transition({
-  fromRoute: 'homeScreen',
+  fromRoute: 'homescreen',
   toRoute: 'launch',
   velocityAnimation: {
     "in": 'transition.pushRightIn',
@@ -211,6 +211,8 @@ Transitioner.transition({
 });
 
 Transitioner["default"]({
-  "in": 'transition.fadeIn',
-  out: 'transition.pushRightIn'
+  velocityAnimation: {
+      "in": 'transition.pushLeftIn',
+      out: 'transition.pushRightOut'
+    }
 });
