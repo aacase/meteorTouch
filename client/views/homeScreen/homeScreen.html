@@ -7,7 +7,7 @@
 				<div class="sixteen wide column sideNav odd" id="launchButton"><div class="center aligned"><h1><i class=" space shuttle icon"></i></h1></div><div class='center aligned'>Launch</div></div>
 				<div class="sixteen wide column sideNav even" id="myInfo"><div class="center aligned"><h1><i class=" user icon"></i></h1></div><div class='center aligned'>My Info</div></div>
 				<div class="sixteen wide column sideNav odd"><div class="center aligned"><h1><i class=" volume up icon"></i></h1></div><div class='center aligned'>Volume</div></div>
-				<div id='dndButton'>{{{dndEnabled}}}</div>
+				<div>{{{dndEnabled}}}</div>
 			</div>
 			{{/if}}
 			{{#if backScreen}}
@@ -50,13 +50,18 @@
 			<div class="features ui grid noMargin">
 				<div class="four wide column greyOdd" id="call">Call</div>
 				<div class="four wide column greyEven" id="present">Present</div>
-				<div class="four wide column greyOdd">Record</div>
-				<div class="four wide column greyEven">Move</div>
+				<div class="four wide column greyOdd" id="record">Record</div>
+				<div class="four wide column greyEven" id='move'>Move</div>
+
 
 			</div>
 			{{/if}}
 			{{#if directory}}
 				This is the Directory View
+			{{/if}}
+
+			{{#if move}}
+				This is the Move UI
 			{{/if}}
 
 			{{#if call}}
@@ -66,6 +71,17 @@
 					<div class="four wide column greyOdd" id="meetings">Meetings</div>
 					<div class="four wide column greyEven" id='directory'>Directory</div>
 					<div class="four wide column greyEven">Keypad</div>
+
+				</div>
+			{{/if}}
+
+			{{#if record}}
+				<div class="features ui grid noMargin">
+					<div class="four wide column greyOdd" id="camera">Camera</div>
+					<div class="four wide column greyEven" id="presentation">Presentation</div>
+					<div class="four wide column greyOdd">Dual Stream</div>
+					<div class="four wide column greyEven"></div>
+
 
 				</div>
 			{{/if}}

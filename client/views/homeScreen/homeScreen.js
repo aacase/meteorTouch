@@ -10,7 +10,9 @@ Template.homeScreen.helpers({
 	backScreen:function(){return Session.get('backScreen')},
 	callUI:function(){return Session.get('callUI')},
 	standardMenu:function(){return Session.get('standardMenu')},
-	dndEnabled:function(){return(Session.get('dndEnabled'))}
+	dndEnabled:function(){return(Session.get('dndEnabled'))},
+	record:function(){return Session.get('record')},
+	move:function(){return Session.get('move')}
 
 
 
@@ -68,6 +70,29 @@ Template['homeScreen'].events({
 	 Session.set('backScreen', true);
 	 Session.set('call', false);
 	 Session.set('location', "Directories")
+	
+	},
+	'click #record' : function () {
+	  // $('#dndButton').removeClass('.even')
+	 Session.set('standardMenu', false);
+	 Session.set('myInfo', false);
+	 Session.set('record', true);
+	 // Session.set('callUI', true);
+	 Session.set('directory', false);
+	 Session.set('backScreen', true);
+	 Session.set('location', 'Record');
+	
+	},
+	'click #move' : function () {
+	  // $('#dndButton').removeClass('.even')
+	 Session.set('standardMenu', false);
+	 Session.set('homeScreen', false);
+	 Session.set('myInfo', false);
+	 Session.set('move', true);
+	 // Session.set('callUI', true);
+	 Session.set('directory', false);
+	 Session.set('backScreen', true);
+	 Session.set('location', 'Move');
 	
 	},
 	'click #backButton' : function () {
