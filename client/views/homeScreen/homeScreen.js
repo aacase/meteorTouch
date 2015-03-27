@@ -8,7 +8,8 @@ Template.homeScreen.helpers({
 	myInfo:function(){return Session.get('myInfo')},
 	call:function(){return Session.get('call')},
 	backScreen:function(){return Session.get('backScreen')},
-	callUI:function(){return Session.get('callUI')}
+	callUI:function(){return Session.get('callUI')},
+	standardMenu:function(){return Session.get('standardMenu')}
 
 
 
@@ -19,6 +20,7 @@ Template.homeScreen.rendered = function(){
 	Session.set('directory', false);
 	Session.set('homeScreen', true);
 	Session.set('location', 'Home');
+	Session.set('standardMenu', true);
 }
 
 Template['homeScreen'].events({
@@ -56,7 +58,8 @@ Template['homeScreen'].events({
 	},
 	'click #directory' : function () {
 	  // $('#dndButton').removeClass('.even')
-	 Session.set('homeScreen', false);
+	  Session.set('standardMenu', false);
+
 	 Session.set('directory', true);
 	 Session.set('backScreen', true);
 	 Session.set('call', false);
@@ -65,10 +68,24 @@ Template['homeScreen'].events({
 	},
 	'click #backButton' : function () {
 	  // $('#dndButton').removeClass('.even')
+
+	  //adding logic here to determine what the back button does:
+
+	  if (Session.get('directory')){
+	  	Session.set('homeScreen', false);
+	  	Session.set('myInfo', false);
+	  	Session.set('call', true);
+	  		 // Session.set('callUI', true);
+	  	Session.set('directory', false);
+	  	Session.set('location', 'Call');
+	  }
+	  else{
 	 Session.set('homeScreen', true);
 	 Session.set('myInfo', false);
 	 Session.set('backScreen', false);
+	 Session.set('standardMenu', true);
 	 Session.set('location', 'Home');
+	  }
 	 
 	},
 	'click #myInfo' : function () {
@@ -84,7 +101,7 @@ Template['homeScreen'].events({
 	 Session.set('homeScreen', false);
 	 Session.set('myInfo', false);
 	 Session.set('call', true);
-	 Session.set('callUI', true);
+	 // Session.set('callUI', true);
 	 Session.set('directory', false);
 	 Session.set('location', 'Call');
 	 
