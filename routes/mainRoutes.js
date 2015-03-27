@@ -3,7 +3,7 @@ Router.configure({
 })
 
 Router.route('/', function () {
-  this.render('main');
+  this.render('homeScreen');
   SEO.set({ title: 'Home -' + Meteor.App.NAME });
 });
 
