@@ -36,15 +36,15 @@ Template['homeScreen'].events({
 	  $('#dndButton').removeClass('.even');
 	  
 	   Session.set('icon', "<i class='dont icon pukeGreen'></i>");
-	   Session.set('dndEnabled', "<div class='sixteen wide column sideNav endCall ' id='dndButton'><div class='center aligned' id='dndText'><h1><i class=' dont icon'></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>");
+	   Session.set('dndEnabled', "<div class='sixteen wide column sideNav endCall ' id='dndActive'><div class='center aligned' id='dndText'><h1><i class=' dont icon'></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>");
 	   $('#dndButton').addClass('endCall');
 	   if($('#dndButton').hasClass('endCall')){
-	   	$("#dndButton").attr("id","dndEnabled");
+	   	$("#dndButton").attr("id","dndActive");
 	   }
 	},
 
-	'click #dndEnabled' : function () {
-	  $('#dndEnabled').removeClass('endCall');
+	'click #dndActive' : function () {
+	  // $('#dndEnabled').removeClass('endCall');
 	  // $('#dndEnabled').addClass('even');
 	  Session.set('icon', "");
 	  Session.set('dndEnabled', "<div class='sixteen wide column sideNav even ' id='dndButton'><div class='center aligned' id='dndText'><h1><i class=' dont icon'></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>");
@@ -75,6 +75,7 @@ Template['homeScreen'].events({
 	'click #record' : function () {
 	  // $('#dndButton').removeClass('.even')
 	 Session.set('standardMenu', false);
+	 Session.set('homeScreen', false);
 	 Session.set('myInfo', false);
 	 Session.set('record', true);
 	 // Session.set('callUI', true);
