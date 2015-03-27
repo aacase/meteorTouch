@@ -9,7 +9,8 @@ Template.homeScreen.helpers({
 	call:function(){return Session.get('call')},
 	backScreen:function(){return Session.get('backScreen')},
 	callUI:function(){return Session.get('callUI')},
-	standardMenu:function(){return Session.get('standardMenu')}
+	standardMenu:function(){return Session.get('standardMenu')},
+	dndEnabled:function(){return(Session.get('dndEnabled'))}
 
 
 
@@ -21,6 +22,7 @@ Template.homeScreen.rendered = function(){
 	Session.set('homeScreen', true);
 	Session.set('location', 'Home');
 	Session.set('standardMenu', true);
+	Session.set('dndEnabled', "<div class='sixteen wide column sideNav even ' id='dndButton'><div class='center aligned' id='dndText'><h1><i class=' dont icon'></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>");
 }
 
 Template['homeScreen'].events({
@@ -32,6 +34,7 @@ Template['homeScreen'].events({
 	  $('#dndButton').removeClass('.even');
 	  
 	   Session.set('icon', "<i class='dont icon pukeGreen'></i>");
+	   Session.set('dndEnabled', "<div class='sixteen wide column sideNav endCall ' id='dndButton'><div class='center aligned' id='dndText'><h1><i class=' dont icon'></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>");
 	   $('#dndButton').addClass('endCall');
 	   if($('#dndButton').hasClass('endCall')){
 	   	$("#dndButton").attr("id","dndEnabled");
@@ -40,8 +43,9 @@ Template['homeScreen'].events({
 
 	'click #dndEnabled' : function () {
 	  $('#dndEnabled').removeClass('endCall');
-	  $('#dndEnabled').addClass('even');
+	  // $('#dndEnabled').addClass('even');
 	  Session.set('icon', "");
+	  Session.set('dndEnabled', "<div class='sixteen wide column sideNav even ' id='dndButton'><div class='center aligned' id='dndText'><h1><i class=' dont icon'></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>");
 	  $("#dndEnabled").attr("id","dndButton");
 	},
 	'click #infoPanel' : function () {
