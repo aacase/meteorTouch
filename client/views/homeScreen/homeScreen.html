@@ -1,12 +1,38 @@
 <template name="homeScreen">
 <div class="container homeContainer">
+	<div class="ui  modal">
+		<i class="close icon"></i>
+		<div class="header">
+			Archive Old Messages
+		</div>
+		<div class="content">
+			<div class="image">
+				<i class="archive icon"></i>
+			</div>
+			<div class="description">
+				<p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
+			</div>
+		</div>
+		<div class="actions">
+			<div class="two fluid ui inverted buttons">
+				<div class="ui red basic inverted button">
+					<i class="remove icon"></i>
+					No
+				</div>
+				<div class="ui green basic inverted button">
+					<i class="checkmark icon"></i>
+					Yes
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="ui grid">
 		<div class="three wide column noPaddingRight shadowCat">
 			{{#if standardMenu}}
 			<div class="row">
 				<div class="sixteen wide column sideNav odd" id="launchButton"><div class="center aligned"><h1><i class=" space shuttle icon"></i></h1></div><div class='center aligned'>Launch</div></div>
 				<div class="sixteen wide column sideNav even" id="myInfo"><div class="center aligned"><h1><i class=" user icon"></i></h1></div><div class='center aligned'>My Info</div></div>
-				<div class="sixteen wide column sideNav odd"><div class="center aligned"><h1><i class=" volume up icon"></i></h1></div><div class='center aligned'>Volume</div></div>
+				<div class="sixteen wide column sideNav odd" id='volume'><div class="center aligned"><h1><i class=" volume up icon"></i></h1></div><div class='center aligned'>Volume</div></div>
 				<div>{{{dndEnabled}}}</div>
 			</div>
 			{{/if}}
@@ -22,7 +48,6 @@
 			</div>
 			{{/if}}
 			
-
 		</div>
 		<div class="thirteen wide column noPadding ">
 			<div class="statusBar noShadow">
@@ -30,7 +55,7 @@
 				<div class="ui  grid">
 					<div class="row">
 						<div class="thirteen wide column">
-							<div class="right aligned">{{location}}</div>
+							<div class="right aligned" id='easterEgg'>{{location}}</div>
 						</div>
 						<div class="column"><div class="right aligned">{{{icon}}}</div></div>
 						<div class="column"><div class="right aligned"><i class="record icon pukeGreen"></i></div></div>
@@ -43,7 +68,6 @@
 				<div class="four wide column greyEven">More stuff</div>
 				<div class="four wide column greyOdd">Calls n stuff</div>
 				<div class="four wide column greyEven">Testing look</div>
-
 			</div>
 			{{/if}}
 			{{#if homeScreen}}
@@ -52,47 +76,37 @@
 				<div class="four wide column greyEven" id="present">Present</div>
 				<div class="four wide column greyOdd" id="record">Record</div>
 				<div class="four wide column greyEven" id='move'>Move</div>
-
-
 			</div>
 			{{/if}}
 			{{#if directory}}
-				{{> contactList}}
+			{{> contactList}}
 			{{/if}}
-
 			{{#if move}}
-				This is the Move UI
+			This is the Move UI
 			{{/if}}
-
 			{{#if favorites}}
-				{{> contactList}}
+			{{> contactList}}
 			{{/if}}
-
 			{{#if call}}
-				<div class="features ui grid noMargin">
-					<div class="four wide column greyOdd" id="recents">Recents</div>
-					<div class="four wide column activePurple" id="favorites">Favorites</div>
-					<div class="four wide column greyOdd" id="meetings">Meetings</div>
-					<div class="four wide column greyEven" id='directory'>Directory</div>
-					<div class="four wide column greyEven">Keypad</div>
-
-				</div>
+			<div class="features ui grid noMargin">
+				<div class="four wide column greyOdd" id="recents">Recents</div>
+				<div class="four wide column activePurple" id="favorites">Favorites</div>
+				<div class="four wide column greyOdd" id="meetings">Meetings</div>
+				<div class="four wide column greyEven" id='directory'>Directory</div>
+				<div class="four wide column greyEven">Keypad</div>
+			</div>
 			{{/if}}
-
 			{{#if record}}
-				<div class="features ui grid noMargin">
-					<div class="four wide column greyOdd" id="camera">Camera</div>
-					<div class="four wide column greyEven" id="presentation">Presentation</div>
-					<div class="four wide column greyOdd">Dual Stream</div>
-					<div class="four wide column greyEven"></div>
-
-
-				</div>
+			<div class="features ui grid noMargin">
+				<div class="four wide column greyOdd" id="camera">Camera</div>
+				<div class="four wide column greyEven" id="presentation">Presentation</div>
+				<div class="four wide column greyOdd">Dual Stream</div>
+				<div class="four wide column greyEven"></div>
+			</div>
 			{{/if}}
 			{{#if recents}}
-				{{> contactList}}
+			{{> contactList}}
 			{{/if}}
-
 		</div>
 		
 	</div>

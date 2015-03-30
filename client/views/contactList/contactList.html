@@ -1,36 +1,57 @@
 <template name="contactList">
-    {{#if recents}}
-    
-    <table class="ui striped celled table">
-     
-      <tbody>
-    	{{# each recentsList}}
-    	<tr>
-    		<td>{{name}} <br>{{extension}}</td>
-    		{{#if available}}
-    		<td class='directoryPhone center aligned'><h1><i class="call icon canCall"></i></h1></td>
-    		<td class='availableCell center aligned'><h3><i class="green circle icon"></i></h3></td>
-    		{{else}}
-    		<td class='center aligned'><h1><i class="call icon"></i></h1></td>
-    		<td class='availableCell center aligned'><h3><i class="red minus circle icon"></i></h3></td>
-    		{{/if}}
-    	</tr>
-    	{{/each}}
+{{#if recents}}
+<div class="sixteen wide column">
+	<!-- <div class="row">
+		<div class="thirteen wide column">
+			<div class="ui left icon  input">
+				<input type="text" placeholder="Search Recents">
+				<i class="search icon"></i>
+			</div>
+			
+		</div>
+		<div class="three wide column "><h1><i class="edit icon"></i></h1></div>
+	</div> -->
+	<!-- <form class="ui form">
+	  
+	  <div class="two fields">
+	  	<div class="field">
+	  		<div class="ui left icon  input">
+	  			<input type="text" placeholder="Search Recents">
+	  			<i class="search icon"></i>
+	  		</div>
+	  	</div>
+	  	<div class="field">
+	  		<h1><i class="edit icon"></i></h1>
+	  	</div>
+	  </div>
+	</form> -->
+</div>
+<table class="ui striped celled table">
+	
+	<tbody>
+		{{# each recentsList}}
+		<tr>
+			<td>{{name}} <br>{{extension}}</td>
+			{{#if available}}
+			<td class='directoryPhone center aligned'><h1><i class="call icon canCall"></i></h1></td>
+			<td class='availableCell center aligned'><h3><i class="green circle icon"></i></h3></td>
+			{{else}}
+			<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+			<td class='availableCell center aligned'><h3><i class="red minus circle icon"></i></h3></td>
+			{{/if}}
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
 
-       </tbody>
-
-    </table>
-    {{/if}}
-
-    {{#if directory}}
-    <p>This is the full directory view</p>
-    {{/if}}
-
-    {{#if favorites}}
-    	<p>This is the favorite UI (but not my favorite)</p>
-    	{{#each favoritesList}}
-    	 <p>This is the row for {{name}}</p>
-    	 {{/each}}
-    {{/if}}
+{{/if}}
+{{#if directory}}
+<p>This is the full directory view</p>
+{{/if}}
+{{#if favorites}}
+<p>This is the favorite UI (but not my favorite)</p>
+{{#each favoritesList}}
+<p>This is the row for {{name}}</p>
+{{/each}}
+{{/if}}
 </template>
-

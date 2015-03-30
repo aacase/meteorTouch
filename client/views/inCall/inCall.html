@@ -1,7 +1,24 @@
 <template name="inCall">
 <div class="inCallPrimary">
     <div class="container inCallSecondary">
-        
+        {{#if incomingCall}}
+        <div class="ui grid">
+            <div class="row">
+                <div class="fourteen wide column"></div>
+                <div class="one wide column bigFont exitCall"><i class=" white remove  icon"></i></div>
+            </div>
+            <div class=" center aligned row">
+                 <div class="three wide column callButton">INcominggggggg</div>
+                <div class="one wide column"></div>
+                <div class="three wide column callButton">INcominggggggg</div>
+                <div class="one wide column"></div>
+                <div class="three wide column callButton endCall">stuff2</div>
+                <div class="one wide column"></div>
+                <div class="three wide column callButton endCall">stuff3</div>
+            </div>
+        </div>
+
+        {{else}}
         <div class="ui grid">
             <div class="row">
                 <div class="fourteen wide column"></div>
@@ -16,6 +33,7 @@
                 <div class="three wide column callButton">stuff3</div>
             </div>
         </div>
+        {{/if}}
         
     </div>
 </div>

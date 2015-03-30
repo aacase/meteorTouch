@@ -32,6 +32,8 @@ Template.homeScreen.rendered = function(){
 		
 		Session.set('dndEnabled', "<div class='sixteen wide column sideNav even ' id='dndButton'><div class='center aligned' id='dndText'><h1><i class=' dont icon'></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>");
 	}
+
+	$('.ui.modal').modal({offset: 50});
 }
 
 Template['homeScreen'].events({
@@ -163,6 +165,15 @@ Template['homeScreen'].events({
 	 Session.set('recents', true);
 	 Session.set('location', 'Recents');
 	 
+	},
+	'click #volume' : function () {
+	  $('.modal').modal('show');
+	 
+	 
+	},
+	'click #easterEgg' : function () {
+		Session.set('incomingCall',true);
+		setTimeout(function(){ Router.go('/inCall') }, 3000);
 	}
 });
 
