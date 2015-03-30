@@ -19,6 +19,9 @@ Template['contactList'].helpers({
 });
 
 Template['contactList'].events({
+	'click .canCall' : function () {
+	  Router.go('/inCall');
+	},
 });
 
 

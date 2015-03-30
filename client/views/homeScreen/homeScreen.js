@@ -25,7 +25,13 @@ Template.homeScreen.rendered = function(){
 	Session.set('homeScreen', true);
 	Session.set('location', 'Home');
 	Session.set('standardMenu', true);
-	Session.set('dndEnabled', "<div class='sixteen wide column sideNav even ' id='dndButton'><div class='center aligned' id='dndText'><h1><i class=' dont icon'></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>");
+	if (Session.get('icon')=="<i class='dont icon pukeGreen'></i>"){
+		Session.set('dndEnabled', "<div class='sixteen wide column sideNav endCall ' id='dndActive'><div class='center aligned' id='dndText'><h1><i class=' dont icon'></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>");
+	}
+	else{
+		
+		Session.set('dndEnabled', "<div class='sixteen wide column sideNav even ' id='dndButton'><div class='center aligned' id='dndText'><h1><i class=' dont icon'></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>");
+	}
 }
 
 Template['homeScreen'].events({
