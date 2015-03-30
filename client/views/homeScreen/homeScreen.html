@@ -57,11 +57,15 @@
 			</div>
 			{{/if}}
 			{{#if directory}}
-				This is the Directory View
+				{{> contactList}}
 			{{/if}}
 
 			{{#if move}}
 				This is the Move UI
+			{{/if}}
+
+			{{#if favorites}}
+				{{> contactList}}
 			{{/if}}
 
 			{{#if call}}
@@ -85,7 +89,9 @@
 
 				</div>
 			{{/if}}
-
+			{{#if recents}}
+				{{> contactList}}
+			{{/if}}
 
 		</div>
 		

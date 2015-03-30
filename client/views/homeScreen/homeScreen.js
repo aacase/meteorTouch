@@ -12,7 +12,8 @@ Template.homeScreen.helpers({
 	standardMenu:function(){return Session.get('standardMenu')},
 	dndEnabled:function(){return(Session.get('dndEnabled'))},
 	record:function(){return Session.get('record')},
-	move:function(){return Session.get('move')}
+	move:function(){return Session.get('move')},
+	recents:function(){return Session.get('recents')}
 
 
 
@@ -78,7 +79,7 @@ Template['homeScreen'].events({
 	 Session.set('homeScreen', false);
 	 Session.set('myInfo', false);
 	 Session.set('record', true);
-	 // Session.set('callUI', true);
+	 Session.set('call', false);
 	 Session.set('directory', false);
 	 Session.set('backScreen', true);
 	 Session.set('location', 'Record');
@@ -90,7 +91,7 @@ Template['homeScreen'].events({
 	 Session.set('homeScreen', false);
 	 Session.set('myInfo', false);
 	 Session.set('move', true);
-	 // Session.set('callUI', true);
+	Session.set('call', false);
 	 Session.set('directory', false);
 	 Session.set('backScreen', true);
 	 Session.set('location', 'Move');
@@ -101,8 +102,9 @@ Template['homeScreen'].events({
 
 	  //adding logic here to determine what the back button does:
 
-	  if (Session.get('directory')){
+	  if (Session.get('directory')||Session.get('recents')){
 	  	Session.set('homeScreen', false);
+	  	Session.set('recents', false);
 	  	Session.set('myInfo', false);
 	  	Session.set('call', true);
 	  		 // Session.set('callUI', true);
@@ -113,6 +115,8 @@ Template['homeScreen'].events({
 	 Session.set('homeScreen', true);
 	 Session.set('myInfo', false);
 	 Session.set('backScreen', false);
+	 Session.set('move', false);
+	 Session.set('record', false);
 	 Session.set('standardMenu', true);
 	 Session.set('location', 'Home');
 	  }
@@ -129,11 +133,29 @@ Template['homeScreen'].events({
 	'click #call' : function () {
 	  // $('#dndButton').removeClass('.even')
 	 Session.set('homeScreen', false);
+	 Session.set('standardMenu', false);
+	 Session.set('backScreen', true);
+	 Session.set('move', false);
+
 	 Session.set('myInfo', false);
 	 Session.set('call', true);
 	 // Session.set('callUI', true);
 	 Session.set('directory', false);
 	 Session.set('location', 'Call');
+	 
+	},
+	'click #recents' : function () {
+	  // $('#dndButton').removeClass('.even')
+	 Session.set('homeScreen', false);
+	 Session.set('standardMenu', false);
+	 Session.set('backScreen', true);
+
+	 Session.set('myInfo', false);
+	 Session.set('call', false);
+	 // Session.set('callUI', true);
+	 Session.set('directory', false);
+	 Session.set('recents', true);
+	 Session.set('location', 'Recents');
 	 
 	}
 });
