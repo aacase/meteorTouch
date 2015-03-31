@@ -1,36 +1,38 @@
 <template name="launch">
 <div class="row">
 	<div class="statusbar"></div>
+	<div class="background-image"></div>
 	<div class="splash">
-		<div class="ui three column divided equal height grid">
-			<div class="row">
-				
-				<div class="eight wide column lightFont timePad">
-					<div class='bigTime center aligned '>{{localTime}}</div>
-					<div class="center aligned">{{date}}</div>
-				</div>
-				<div class="six widecolumn mainButtons timePad">
-					<div class="ui two column  equal height grid ">
-						<div class="row">
-							<div class=" column"><div class="greenSquare center aligned"><div class="vertCent">HELP DESK</div></div></div>
-							<div class=" column"><div class="greenSquare center aligned"><div class="vertCent">MCU</div></div></div>
-						</div>
-						<div class="row">
-							<div class=" column"><div class="greenSquare center aligned"><div class="vertCent">Twitter Meet</div></div></div>
-							<div class=" column"><div class="greenSquare center aligned"><div class="vertCent">Yelp Meet</div></div></div>
-						</div>
+		<div class="splashContent">
+			<div class="ui three column divided equal height grid">
+				<div class="row">
+					
+					<div class="eight wide column lightFont timePad">
+						<div class='bigTime center aligned '>{{localTime}}</div>
+						<div class="center aligned">{{date}}</div>
 					</div>
-					<!-- <div class="ui two column  equal height grid noPaddingRight">
+					<div class="six widecolumn mainButtons timePad">
+						<div class="ui two column  equal height grid ">
 							<div class="row">
-									<div class=" column"><div class="greenSquare">Twitter Meet</div></div>
-									<div class=" column"><div class="greenSquare">Yelp Meet</div></div>
+								<div class=" column"><div class="greenSquare center aligned"><div class="vertCent">HELP DESK</div></div></div>
+								<div class=" column"><div class="greenSquare center aligned"><div class="vertCent">MCU</div></div></div>
 							</div>
-					</div> -->
+							<div class="row">
+								<div class=" column"><div class="greenSquare center aligned"><div class="vertCent">Twitter Meet</div></div></div>
+								<div class=" column"><div class="greenSquare center aligned"><div class="vertCent">Yelp Meet</div></div></div>
+							</div>
+						</div>
+						<!-- <div class="ui two column  equal height grid noPaddingRight">
+									<div class="row">
+												<div class=" column"><div class="greenSquare">Twitter Meet</div></div>
+												<div class=" column"><div class="greenSquare">Yelp Meet</div></div>
+									</div>
+						</div> -->
+					</div>
+					<div class="one wide column">Carrat Here</div>
 				</div>
-				<div class="one wide column">Carrar Here</div>
 			</div>
 		</div>
-	</div>
 	<div class="timezones daPurps">
 		<div class="ui divided grid">
 			<div class="row">
@@ -40,6 +42,7 @@
 				<div class="four wide column center aligned"><div>{{easternTime}}</div> <div class='smallTime'>EASTERN</div></div>
 			</div>
 		</div>
+	</div>
 	</div>
 </div>
 </template>
