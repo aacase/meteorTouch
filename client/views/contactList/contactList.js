@@ -30,4 +30,5 @@ Template.contactList.rendered = function(){
 	var recentsList = [{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false}]
 	Session.set('favoritesList', favoritesList);
 	Session.set('recentsList', recentsList);
+	
 }

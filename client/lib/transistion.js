@@ -165,6 +165,15 @@ Transitioner.transition({
 });
 
 Transitioner.transition({
+  fromRoute: 'launch',
+  toRoute: 'homescreen',
+  velocityAnimation: {
+    "in": 'transition.pushRightIn',
+    out: 'transition.pushLeftOut'
+  }
+});
+
+Transitioner.transition({
   fromRoute: 'main',
   toRoute: 'slideUp',
   velocityAnimation: {

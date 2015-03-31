@@ -12,13 +12,13 @@
 }
 
 .greenSquare{
-	height: 100px !important;
-	width: 140px !important;
+	height: 140px !important;
+	width: 150px !important;
 	background-color: @pukeGreenLight !important;
 }
 
 .background-image{
-	position: fixed;
+  position: fixed;
   left: 0;
   right: 0;
   z-index: 1;
@@ -37,15 +37,18 @@
 
 
 .splash{
-	// background-image: url(/images/background/reflections.jpg);
 	height: 483px;
 	width: 800px;
-	 position: fixed;
-	  left: 0;
-	  right: 0;
-	  z-index: 9999;
-	  // margin-left: 20px;
-	  // margin-right: 20px;
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: 9999;
+	.statusBar{
+		background-color: rgba(255,255,255, 0.1);
+		height:auto;
+         	// display: inline-block;
+          // 	padding: 0px 0px 12px;
+	}
 }
 
 .lightFont{
@@ -54,7 +57,7 @@
 }
 
 .daPurps{
-	margin-top: 110px;
+	margin-top: 60px;
 	background-color: #41395a;
 	color: #fff;
 	.ui.divided.grid:not([class*="vertically divided"]) > .row > .column {
@@ -74,10 +77,24 @@
 
 .mainButtons{
 	.ui.grid > .row {
-		padding: 10px 34px 15px 0px !important;
+		padding: 10px 10px 5px 10px !important;
 	}
 }
 
 .timePad{
-	padding-top: 12%;
+	padding-top: 15%;
 }
+
+.buttonPad{
+	padding-top: 8%;
+}
+
+.launchDown{
+	padding-top: 20%;
+	margin-right: 20px !important;
+	i{
+		font-size: 5em;
+	}
+}
+
+

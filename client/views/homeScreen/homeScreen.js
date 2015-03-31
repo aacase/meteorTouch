@@ -41,6 +41,7 @@ Template.homeScreen.rendered = function(){
       value: 0,
       step: .001
     });
+    $('#slider').draggable();
 }
 
 Template['homeScreen'].events({
