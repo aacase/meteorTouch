@@ -35,6 +35,7 @@ Template.homeScreen.rendered = function(){
 	}
 
 	$('.ui.modal').modal();
+	$(".ui.dimmer").dimmer();
 	$( "#slider" ).slider({
       range: "min",
       min: 0,
@@ -207,6 +208,11 @@ Template['homeScreen'].events({
 	},
 	'click #volume' : function () {
 	  $('.modal').modal('show');
+	 
+	 
+	},
+	'click #sleep' : function () {
+	  $('.dimmer').dimmer('toggle');
 	 
 	 
 	},
