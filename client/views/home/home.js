@@ -223,6 +223,15 @@ Transitioner.transition({
 });
 
 Transitioner.transition({
+  fromRoute: '/homescreen',
+  toRoute: '/inCall',
+  velocityAnimation: {
+    "in": 'transition.pushDownIn',
+    out: 'transition.pushUpOut'
+  }
+});
+
+Transitioner.transition({
   fromRoute: 'slideDown',
   toRoute: 'main',
   velocityAnimation: {
@@ -232,6 +241,6 @@ Transitioner.transition({
 });
 
 Transitioner["default"]({
-  "in": 'transition.fadeIn',
-  out: 'transition.fadeOut'
+    "in": 'transition.pushUpIn',
+    out: 'transition.pushDownOut'
 });

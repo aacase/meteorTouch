@@ -33,7 +33,33 @@ Template.homeScreen.rendered = function(){
 		Session.set('dndEnabled', "<div class='sixteen wide column sideNav even ' id='dndButton'><div class='center aligned' id='dndText'><h1><i class=' dont icon'></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>");
 	}
 
-	$('.ui.modal').modal({offset: 50});
+	$('.ui.modal').modal();
+	$( "#slider" ).slider({
+      range: "min",
+      min: 0,
+      max: 10,
+      value: 0,
+      step: .001
+    });
+    $('#slider').draggable();
+    Transitioner.transition({
+      fromRoute: 'inCall',
+      toRoute: 'homescreen',
+      velocityAnimation: {
+        "in": [
+          'transition.perspectiveDownIn', {
+            duration: 2000,
+            easing: 'ease-out'
+          }
+        ],
+        out: [
+          'transition.perspectiveUpOut', {
+            duration: 2000,
+            easing: 'ease-out'
+          }
+        ]
+      }
+    });
 }
 
 Template['homeScreen'].events({

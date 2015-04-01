@@ -10,3 +10,24 @@ Template['inCall'].events({
 	  Router.go('/homescreen');
 	},
 });
+
+
+
+Transitioner.transition({
+  fromRoute: 'inCall',
+  toRoute: 'homescreen',
+  velocityAnimation: {
+    "in": [
+      'transition.perspectiveDownIn', {
+        duration: 2000,
+        easing: 'ease-out'
+      }
+    ],
+    out: [
+      'transition.perspectiveUpOut', {
+        duration: 2000,
+        easing: 'ease-out'
+      }
+    ]
+  }
+});

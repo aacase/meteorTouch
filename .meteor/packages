@@ -29,3 +29,5 @@ velocityjs:velocityjs
 autopublish
 momentjs:moment
 mrt:moment-timezone
+mizzao:jquery-ui
+dsyko:jquery-ui-touch-punch
