@@ -67,14 +67,8 @@
 				<div class="five wide column greyEven" id="present">Present</div>
 				<div class="five wide column greyOdd" id="record">Record</div>
 				<div class="five wide column greyEven" id='move'>Move</div>
-				<div class="five wide column greyOdd">Stuff here</div>
-				<div class="four wide column greyEven">More stuff</div>
-				<div class="four wide column greyOdd">Calls n stuff</div>
-				<div class="four wide column greyEven">Testing look</div>
-				<div class="four wide column greyOdd">Stuff here</div>
-				<div class="four wide column greyEven">More stuff</div>
-				<div class="four wide column greyOdd">Calls n stuff</div>
-				<div class="four wide column greyEven">Testing look</div>
+				<div class="five wide column greyOdd">System</div>
+				<div class="four wide column greyEven">Sleep</div>
 			</div>
 			{{/if}}
 			{{#if directory}}
@@ -87,12 +81,12 @@
 			{{> contactList}}
 			{{/if}}
 			{{#if call}}
-			<div class="features ui grid noMargin">
-				<div class="four wide column greyOdd" id="recents">Recents</div>
-				<div class="four wide column greyEven" id="favorites">Favorites</div>
-				<div class="four wide column greyOdd" id="meetings">Meetings</div>
-				<div class="four wide column greyEven" id='directory'>Directory</div>
-				<div class="four wide column greyEven">Keypad</div>
+			<div class="features ui grid noMargin" style="overflow-y:auto;white-space:nowrap;">
+				<div class="five wide column greyOdd" id="recents">Recents</div>
+				<div class="five wide column greyEven" id="favorites">Favorites</div>
+				<div class="five wide column greyOdd" id="meetings">Meetings</div>
+				<div class="five wide column greyEven" id='directory'>Directory</div>
+				<div class="five wide column greyOdd " id='keypad'>Keypad</div>
 			</div>
 			{{/if}}
 			{{#if record}}
@@ -106,6 +100,10 @@
 			{{#if recents}}
 			{{> contactList}}
 			{{/if}}
+			{{#if keypad}}
+				{{> keypadView}}
+			{{/if}} 	
+
 		</div>
 		
 	</div>
