@@ -63,49 +63,47 @@
 			{{/if}}
 			{{#if homeScreen}}
 			<div class="features ui grid noMargin" style="overflow-y:auto;white-space:nowrap;">
-				<div class="five wide column greyOdd" id="call">Call</div>
-				<div class="five wide column greyEven" id="present">Present</div>
-				<div class="five wide column greyOdd" id="record">Record</div>
-				<div class="five wide column greyEven" id='move'>Move</div>
-				<div class="five wide column greyOdd">Stuff here</div>
-				<div class="four wide column greyEven">More stuff</div>
-				<div class="four wide column greyOdd">Calls n stuff</div>
-				<div class="four wide column greyEven">Testing look</div>
-				<div class="four wide column greyOdd">Stuff here</div>
-				<div class="four wide column greyEven">More stuff</div>
-				<div class="four wide column greyOdd">Calls n stuff</div>
-				<div class="four wide column greyEven">Testing look</div>
+				<div class="four wide column greyOdd" id="call"><div class="iconDown center aligned"><img src="/images/Callicon.png" alt=""></div><div class="iconDescription center aligned"><h1>Call</h1></div></div>
+				<div class="five wide column greyEven" id="present"><div class="iconDown center aligned"><i class="laptop icon"></i></div><div class="iconDescription center aligned"><h1>Present</h1></div></div>
+				<div class="five wide column greyOdd" id="record"><div class="iconDown center aligned"><i class=" toggle right icon"></i></div><div class="iconDescription center aligned"><h1>Record</h1></div></div>
+				<div class="five wide column greyEven" id='move'><div class="iconDown center aligned"><i class="move icon"></i></div><div class="iconDescription center aligned"><h1>Move</h1></div></div>
+				<div class="five wide column greyOdd" id='system'><div class="iconDown center aligned"><i class="settings icon"></i></div><div class="iconDescription center aligned"><h1>System</h1></div></div>
+				<div class="four wide column greyEven" id="sleep"><div class="iconDown center aligned"><i class="power icon"></i></div><div class="iconDescription center aligned"><h1>Sleep</h1></div></div>
 			</div>
 			{{/if}}
 			{{#if directory}}
 			{{> contactList}}
 			{{/if}}
 			{{#if move}}
-			This is the Move UI
+				{{> moveView}}
 			{{/if}}
 			{{#if favorites}}
 			{{> contactList}}
 			{{/if}}
 			{{#if call}}
-			<div class="features ui grid noMargin">
-				<div class="four wide column greyOdd" id="recents">Recents</div>
-				<div class="four wide column greyEven" id="favorites">Favorites</div>
-				<div class="four wide column greyOdd" id="meetings">Meetings</div>
-				<div class="four wide column greyEven" id='directory'>Directory</div>
-				<div class="four wide column greyEven">Keypad</div>
+			<div class="features ui grid noMargin" style="overflow-y:auto;white-space:nowrap;">
+				<div class="five wide column greyOdd" id="recents"><div class="iconDown center aligned"><i class="wait icon"></i></div><div class="iconDescription center aligned"><h1>Recents</h1></div></div>
+				<div class="five wide column greyEven" id="favorites"><div class="iconDown center aligned"><i class="star icon"></i></div><div class="iconDescription center aligned"><h1>Favorites</h1></div></div>
+				<div class="five wide column greyOdd" id="meetings"><div class="meetingDown center aligned"><img src="/images/meeting2.png" alt=""></div><div class="iconDescription center aligned"><h1>Meetings</h1></div></div>
+				<div class="five wide column greyEven" id='directory'><div class="iconDown center aligned"><i class="users icon"></i></div><div class="iconDescription center aligned"><h1>Directory</h1></div></div>
+				<div class="five wide column greyOdd " id='keypad'><div class="iconDown center aligned"><i class="text telephone icon"></i></div><div class="iconDescription center aligned"><h1>Keypad</h1></div></div>
 			</div>
 			{{/if}}
 			{{#if record}}
 			<div class="features ui grid noMargin">
-				<div class="four wide column greyOdd" id="camera">Camera</div>
-				<div class="four wide column greyEven" id="presentation">Presentation</div>
-				<div class="four wide column greyOdd">Dual Stream</div>
-				<div class="four wide column greyEven"></div>
+				<div class="five wide column greyOdd" id="camera"><div class="iconDown center aligned"><i class="camera icon"></i></div><div class="iconDescription center aligned"><h1>Camera</h1></div></div>
+				<div class="five wide column greyEven" id="presentation"><div class="iconDown center aligned"><i class="laptop icon"></i></div><div class="iconDescription center aligned"><h1>Presentation</h1></div></div>
+				<div class="five wide column greyOdd">Dual Stream</div>
+				
 			</div>
 			{{/if}}
 			{{#if recents}}
 			{{> contactList}}
 			{{/if}}
+			{{#if keypad}}
+				{{> keypadView}}
+			{{/if}} 	
+
 		</div>
 		
 	</div>

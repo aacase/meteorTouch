@@ -13,7 +13,8 @@ Template.homeScreen.helpers({
 	dndEnabled:function(){return(Session.get('dndEnabled'))},
 	record:function(){return Session.get('record')},
 	move:function(){return Session.get('move')},
-	recents:function(){return Session.get('recents')}
+	recents:function(){return Session.get('recents')},
+	keypad:function(){return Session.get('keypad')}
 
 
 
@@ -34,6 +35,7 @@ Template.homeScreen.rendered = function(){
 	}
 
 	$('.ui.modal').modal();
+	$(".ui.dimmer").dimmer();
 	$( "#slider" ).slider({
       range: "min",
       min: 0,
@@ -192,15 +194,32 @@ Template['homeScreen'].events({
 	 Session.set('location', 'Recents');
 	 
 	},
+	'click #keypad' : function () {
+	  // $('#dndButton').removeClass('.even')
+	 Session.set('standardMenu', false);
+	 Session.set('homeScreen', false);
+	 Session.set('myInfo', false);
+	 Session.set('call', false);
+	 Session.set('directory', false);
+	 Session.set('backScreen', true);
+	 Session.set('keypad', true);
+	 Session.set('location', 'Keypad');
+	
+	},
 	'click #volume' : function () {
 	  $('.modal').modal('show');
+	 
+	 
+	},
+	'click #sleep' : function () {
+	  $('.dimmer').dimmer('toggle');
 	 
 	 
 	},
 	'click #easterEgg' : function () {
 		Session.set('incomingCall',true);
 		setTimeout(function(){ Router.go('/inCall') }, 3000);
-	}
+	},
 });
 
 
