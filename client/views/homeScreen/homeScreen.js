@@ -15,7 +15,8 @@ Template.homeScreen.helpers({
 	move:function(){return Session.get('move')},
 	recents:function(){return Session.get('recents')},
 	keypad:function(){return Session.get('keypad')},
-	recordingIcon:function(){return Session.get('recordingIcon')}
+	recordingIcon:function(){return Session.get('recordingIcon')},
+	system:function(){return Session.get('system')},
 
 
 
@@ -27,7 +28,10 @@ Template.homeScreen.rendered = function(){
 	Session.set('homeScreen', true);
 	Session.set('location', 'Home');
 	Session.set('standardMenu', true);
-	Session.set('recordingIcon', "")
+	if(Session.get('recordingMode')){
+		Session.set('recordingIcon', '<i class="record icon pukeGreen"></i>')
+		
+	}
 	if (Session.get('icon')=="<i class='dont icon pukeGreen'></i>"){
 		Session.set('dndEnabled', "<div class='sixteen wide column sideNav endCall ' id='dndActive'><div class='center aligned' id='dndText'><h1><i class=' dont icon'></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>");
 	}
@@ -106,6 +110,18 @@ Template['homeScreen'].events({
 	 Session.set('location', 'Record');
 	
 	},
+	'click #system' : function () {
+	  // $('#dndButton').removeClass('.even')
+	 Session.set('standardMenu', false);
+	 Session.set('homeScreen', false);
+	 Session.set('myInfo', false);
+	 Session.set('system', true);
+	 Session.set('call', false);
+	 Session.set('directory', false);
+	 Session.set('backScreen', true);
+	 Session.set('location', 'Record');
+	
+	},
 	'click #move' : function () {
 	  // $('#dndButton').removeClass('.even')
 	 Session.set('standardMenu', false);
@@ -142,6 +158,7 @@ Template['homeScreen'].events({
 	 Session.set('location', 'Home');
 	 Session.set('call', false);
 	  Session.set('keypad', false);
+	  Session.set('system', false);
 	  }
 	 
 	},
@@ -207,6 +224,16 @@ Template['homeScreen'].events({
 	'click #easterEgg' : function () {
 		Session.set('incomingCall',true);
 		setTimeout(function(){ Router.go('/inCall') }, 3000);
+	},
+	'click #enableRecordIcon' : function () {
+	  	if (Session.get('recordingIcon')=='<i class="record icon pukeGreen"></i>'){
+	  		Session.set('recordingIcon', "");
+	  		Session.set('recordingMode', false);
+	  	}
+	  	else{
+	  		Session.set('recordingIcon', '<i class="record icon pukeGreen"></i>');
+	  		Session.set('recordingMode', true);
+	  	}
 	},
 });
 
