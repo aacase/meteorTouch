@@ -97,6 +97,14 @@
 					
 				</div>
 				{{/if}}
+				{{#if system}}
+				<div class="features ui grid noMargin">
+					<div class="four wide column greyOdd" id="enableRecordIcon">Local View</div>
+					<div class="four wide column greyEven">Health</div>
+					<div class="four wide column greyOdd">Brightness</div>
+					<div class="four wide column greyEven">Reboot</div>
+				</div>
+				{{/if}}
 				{{#if recents}}
 				{{> contactList}}
 				{{/if}}
