@@ -1,5 +1,9 @@
 Template.launch.rendered=function(){
-	$('.splash').hammer({});
+	var splash=document.getElementById('splash');
+	var swipeRoute= new Hammer(splash);
+	swipeRoute.on('swipeleft', function (ev){
+		Router.go('/homescreen')
+	})
 }
 
 Template.launch.helpers({
@@ -15,18 +19,7 @@ Template['launch'].events({
 	'click .launchDown' : function () {
 	  Router.go('/homescreen');
 	},
+
+	
 });
 
-
-Template.launch.gestures({
-  'swipeleft .splash': function (event, template) {
-    /* Do something when user swipes left on .item .panel (elements(s) inside the template html) */
-    /* `event` is the Hammer.js event object */
-    /* `template` is the `Blaze.TemplateInstance` */
-    /* `this` is the data context of the element in your template */
-       console.log(event.type);
-       alert(event.type);
-       Router.go("/homescreen");
-  }
- 
-});

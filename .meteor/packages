@@ -23,11 +23,11 @@ dburles:collection-helpers
 meteorhacks:fast-render
 
 semantic:ui-css
-chriswessels:hammer
-ccorcos:transitioner
-velocityjs:velocityjs
-autopublish
 momentjs:moment
 mrt:moment-timezone
 mizzao:jquery-ui
 dsyko:jquery-ui-touch-punch
+velocityjs:velocityjs
+ccorcos:transitioner
+
+moonco:hammer

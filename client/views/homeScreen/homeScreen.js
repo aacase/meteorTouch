@@ -14,7 +14,8 @@ Template.homeScreen.helpers({
 	record:function(){return Session.get('record')},
 	move:function(){return Session.get('move')},
 	recents:function(){return Session.get('recents')},
-	keypad:function(){return Session.get('keypad')}
+	keypad:function(){return Session.get('keypad')},
+	recordingIcon:function(){return Session.get('recordingIcon')}
 
 
 
@@ -26,6 +27,7 @@ Template.homeScreen.rendered = function(){
 	Session.set('homeScreen', true);
 	Session.set('location', 'Home');
 	Session.set('standardMenu', true);
+	Session.set('recordingIcon', "")
 	if (Session.get('icon')=="<i class='dont icon pukeGreen'></i>"){
 		Session.set('dndEnabled', "<div class='sixteen wide column sideNav endCall ' id='dndActive'><div class='center aligned' id='dndText'><h1><i class=' dont icon'></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>");
 	}
@@ -44,24 +46,7 @@ Template.homeScreen.rendered = function(){
       step: .001
     });
     $('#slider').draggable();
-    Transitioner.transition({
-      fromRoute: 'inCall',
-      toRoute: 'homescreen',
-      velocityAnimation: {
-        "in": [
-          'transition.perspectiveDownIn', {
-            duration: 2000,
-            easing: 'ease-out'
-          }
-        ],
-        out: [
-          'transition.perspectiveUpOut', {
-            duration: 2000,
-            easing: 'ease-out'
-          }
-        ]
-      }
-    });
+    
 }
 
 Template['homeScreen'].events({
@@ -155,6 +140,8 @@ Template['homeScreen'].events({
 	 Session.set('record', false);
 	 Session.set('standardMenu', true);
 	 Session.set('location', 'Home');
+	 Session.set('call', false);
+	  Session.set('keypad', false);
 	  }
 	 
 	},
@@ -178,6 +165,7 @@ Template['homeScreen'].events({
 	 // Session.set('callUI', true);
 	 Session.set('directory', false);
 	 Session.set('location', 'Call');
+	 Session.set('recordingIcon', '<i class="record icon pukeGreen">')
 	 
 	},
 	'click #recents' : function () {

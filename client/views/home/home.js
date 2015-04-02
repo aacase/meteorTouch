@@ -1,23 +1,5 @@
-Template.home.gestures({
-  'swipeleft .item': function (event, template) {
-    /* Do something when user swipes left on .item .panel (elements(s) inside the template html) */
-    /* `event` is the Hammer.js event object */
-    /* `template` is the `Blaze.TemplateInstance` */
-    /* `this` is the data context of the element in your template */
-       console.log(event.type);
-       alert(event.type);
-       Router.go("/left");
-  },
-  'tap .buttonleft': function (event, template) {
-    /* Do something when user swipes left on .item .panel (elements(s) inside the template html) */
-    /* `event` is the Hammer.js event object */
-    /* `template` is the `Blaze.TemplateInstance` */
-    /* `this` is the data context of the element in your template */
-       // console.log(event.type);
-       // alert(event.type);
-       Router.go("/left");
-  }
-});
+
+
 
 $.Velocity.RegisterEffect('transition.pushRightIn', {
   defaultDuration: 500,
@@ -241,6 +223,6 @@ Transitioner.transition({
 });
 
 Transitioner["default"]({
-    "in": 'transition.pushUpIn',
-    out: 'transition.pushDownOut'
+    "in": 'transition.fadeIn',
+    out: 'transition.fadeOut'
 });

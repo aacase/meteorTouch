@@ -205,21 +205,21 @@ Transitioner.transition({
 Transitioner.transition({
   fromRoute: 'inCall',
   toRoute: 'homescreen',
-  velocityAnimation: {
-    "in": [
-      'transition.perspectiveDownIn', {
-        duration: 2000,
-        easing: 'ease-out'
-      }
-    ],
-    out: [
-      'transition.perspectiveUpOut', {
-        duration: 2000,
-        easing: 'ease-out'
-      }
-    ]
+   velocityAnimation: {
+    "in": 'transition.fadeIn',
+    out: 'transition.fadeOut'
   }
 });
+
+Transitioner.transition({
+  fromRoute: 'homescreen',
+  toRoute: 'inCall',
+   velocityAnimation: {
+    "in": 'transition.fadeIn',
+    out: 'transition.fadeOut'
+  }
+});
+
 
 Transitioner.transition({
   fromRoute: 'main',
@@ -239,9 +239,9 @@ Transitioner.transition({
   }
 });
 
-// Transitioner["default"]({
-//   velocityAnimation: {
-//       "in": 'transition.pushLeftIn',
-//       out: 'transition.pushRightOut'
-//     }
-// });
+Transitioner["default"]({
+  velocityAnimation: {
+      "in": 'transition.fadeIn',
+      out: 'transition.fadeOut'
+    }
+});
