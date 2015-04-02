@@ -31,13 +31,15 @@
 	<tbody>
 		{{# each recentsList}}
 		<tr>
-			<td>{{name}} <br>{{extension}}</td>
+			
 			{{#if available}}
+			<td><i class="green circle icon"></i>{{name}} <br>{{extension}}</td>
 			<td class='directoryPhone center aligned'><h1><i class="call icon canCall"></i></h1></td>
-			<td class='availableCell center aligned'><h3><i class="green circle icon"></i></h3></td>
+			<td class='availableCell center aligned'><h1>★</h1></td>
 			{{else}}
+			<td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>
 			<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
-			<td class='availableCell center aligned'><h3><i class="red minus circle icon"></i></h3></td>
+			<td class='availableCell center aligned'><h1 class='notAvailable'>★</h1></td>
 			{{/if}}
 		</tr>
 		{{/each}}
