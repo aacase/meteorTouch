@@ -10,3 +10,9 @@ function loadFixture(fixtures, collection) {
 Meteor.startup(function () {
   //loadFixture(Fixtures['dummyFixture'], DummyCollection);
 });
+
+if(Meteor.isServer) {
+    Meteor.publish('files', function() {
+        return Files.find();
+    });
+}
