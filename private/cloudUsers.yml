@@ -26,3 +26,7 @@ user_michael:
   name: 'Michael Helebrecht'
   extension: 1232433342
   available: false
+user_michael2:
+  name: 'Michael Donaldson'
+  extension: 1234345345345345
+  available: true

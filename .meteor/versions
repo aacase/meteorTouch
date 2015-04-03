@@ -52,6 +52,7 @@ livedata@1.0.13
 localstorage@1.0.3
 logging@1.0.7
 manuelschoebel:ms-seo@0.4.1
+matteodem:easy-search@1.5.2
 matteodem:easy-security@0.1.4
 meteor@1.1.6
 meteor-platform@1.2.2
@@ -66,6 +67,7 @@ mizzao:jquery-ui@1.11.2
 mobile-status-bar@1.0.3
 momentjs:moment@2.9.0
 mongo@1.1.0
+mongo-livedata@1.0.8
 moonco:hammer@0.0.2
 mrt:moment@2.8.1
 mrt:moment-timezone@0.2.1

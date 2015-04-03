@@ -1,5 +1,6 @@
 cloudUsers = new Mongo.Collection('cloudUsers');
 
+
 cloudUsers.attachSchema(
     new SimpleSchema({
     name: {
@@ -17,6 +18,7 @@ cloudUsers.attachSchema(
 // Collection2 already does schema checking
 // Add custom permission rules if needed
 if (Meteor.isServer) {
+  cloudUsers.initEasySearch('name');
   cloudUsers.allow({
     insert : function () {
       return true;
@@ -31,6 +33,7 @@ if (Meteor.isServer) {
 }
 
 if (Meteor.isClient) {
+  cloudUsers.initEasySearch('name');
   cloudUsers.allow({
     insert : function () {
       return true;
