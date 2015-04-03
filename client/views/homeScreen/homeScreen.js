@@ -176,6 +176,20 @@ Template['homeScreen'].events({
 	 Session.set('location', 'My Info');
 	 
 	},
+
+	'click #endCall' : function () {
+	  // $('#dndButton').removeClass('.even')
+	 Session.set('homeScreen', true);
+	 Session.set('standardMenu', true);
+	 Session.set('backScreen', false);
+	 Session.set('myInfo', false);
+	 Session.set('inCallMenu', false);
+	 Session.set('callUI', false);
+	 Session.set('location', 'Home');
+	 
+	},
+
+
 	'click #call' : function () {
 	  // $('#dndButton').removeClass('.even')
 	 Session.set('homeScreen', false);

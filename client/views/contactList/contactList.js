@@ -20,6 +20,11 @@ Template['contactList'].helpers({
 
 Template['contactList'].events({
 	'click .canCall' : function () {
+	  Session.set('outboundCall', true)
+	  Router.go('/inCall');
+	},
+	'click .whatsInAName' : function () {
+	  Session.set('optionsOverlay', true)
 	  Router.go('/inCall');
 	},
 });

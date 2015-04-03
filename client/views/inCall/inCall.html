@@ -18,7 +18,8 @@
             </div>
         </div>
 
-        {{else}}
+        {{/if}}
+        {{#if outboundCall}}
         <div class="ui grid">
             <!-- <div class="row">
                 <div class="fourteen wide column"></div>
@@ -39,6 +40,32 @@
                 <div class="three wide column"></div>
             </div>
         </div>
+        {{/if}}
+        {{#if optionsOverlay}}
+            <div class="ui grid">
+                <div class="center aligned row">
+                    <div class="six wide column"></div>
+                    <div class="three wide column whiteText center  "><h1>&nbsp; &nbsp;  Options</h1></div>
+                    <div class="five wide column"></div>
+                    <div class="two wide column"><div class=" bigFont exitEdit"><i class=" white remove  icon"></i></div></div>
+                    <!-- <div class="column right aligned"><div class=" bigFont exitCall"><i class=" white remove  icon"></i></div></div>
+                    <div class="sixteen wide column center"> <div class="center aligned">Options</div></div> -->
+                    
+                </div>
+                <div class="center aligned row whiteText">
+                   
+                   
+
+                </div>
+                <div class=" center aligned row">
+                    
+                    <div class="three wide column "></div>
+                    <div class="one wide column"></div>
+                    <div class="three wide column callButton endCall"><div class="bigTime"><i class="trash icon"></i></div><div class="inCallButton">Remove All</div></div>
+                    <div class="one wide column"></div>
+                    <div class="three wide column"></div>
+                </div>
+            </div>
         {{/if}}
         
     </div>
