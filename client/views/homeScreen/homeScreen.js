@@ -9,6 +9,7 @@ Template.homeScreen.helpers({
 	call:function(){return Session.get('call')},
 	backScreen:function(){return Session.get('backScreen')},
 	callUI:function(){return Session.get('callUI')},
+	inCallMenu:function(){return Session.get('inCallMenu')},
 	standardMenu:function(){return Session.get('standardMenu')},
 	dndEnabled:function(){return(Session.get('dndEnabled'))},
 	record:function(){return Session.get('record')},
@@ -25,9 +26,14 @@ Template.homeScreen.helpers({
 Template.homeScreen.rendered = function(){
 	Session.set('infoPanel', false);
 	Session.set('directory', false);
-	Session.set('homeScreen', true);
 	Session.set('location', 'Home');
-	Session.set('standardMenu', true);
+	if(Session.get('standardMenu')==false){
+		Session.set('standardMenu', false);
+	}
+	else{
+		Session.set('standardMenu', true);
+		Session.set('homeScreen', true);
+	}
 	if(Session.get('recordingMode')){
 		Session.set('recordingIcon', '<i class="record icon pukeGreen"></i>')
 		
