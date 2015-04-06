@@ -14,9 +14,9 @@
                 <div class="one wide column"></div>
                 <div class="three wide column callButton greenButton"><div class="bigTime"><img src="/images/add.png" alt=""></div><div class=""><h2>End & Answer</h2></div></div>
                 <div class="one wide column"></div>
-                <div class="three wide column callButton endCall"><div class="bigTime"><img src="/images/end.png" alt=""></div><div class=""><h2>Ignore</h2></div></div>
+                <div class="three wide column callButton endCall" id='ignore'><div class="bigTime"><img src="/images/end.png" alt=""></div><div class=""><h2>Ignore</h2></div></div>
                 <div class="one wide column"></div>
-                <div class="three wide column callButton endCall"><div class="bigTime"><img src="/images/dnd.png" alt=""></div><div class=""><h2>DND</h2></div></div>
+                <div class="three wide column callButton endCall" id="DND"><div class="bigTime"><img src="/images/dnd.png" alt=""></div><div class=""><h2>DND</h2></div></div>
             </div>
         </div>
 
@@ -69,6 +69,45 @@
                 </div>
             </div>
         {{/if}}
+        {{#if favorites}}
+            <div class="ui grid">
+                <div class="center aligned row whiteText">
+                    
+                    <div class="sixteen wide column"><h3>David Morrison</h3></div>
+                    <div class="sixteen wide column"><h3>100829@lifesizecloud.com</h3><br></div>
+
+                </div>
+                <div class=" center aligned row">
+                     <div class="three wide column callButton greenButton"><div class="bigTime"><img src="/images/callVideo.png" alt=""></div><div class=""><h2>Dial As Video</h2></div></div>
+                    <div class="one wide column"></div>
+                    <div class="three wide column callButton greenButton"><div class="bigTime"><img src="/images/call-outgoing.png" alt=""></div><div class=""><h2>Dial as Voice</h2></div></div>
+                    <div class="one wide column"></div>
+                    <div class="three wide column callButton endCall" id='favDelete'><div class="bigTime">&#9733;</div><div class=""><h2>Remove From Favorites</h2></div></div>
+                    <div class="one wide column"></div>
+                    <div class="three wide column callButton endCall" id="remove"><div class="bigTime"><h1><i class="white trash icon"></i></h1></div><div class=""><h2>Remove</h2></div></div>
+                </div>
+            </div>
+        {{/if}}
+
+        {{#if callPresent}}
+
+          <div class="ui grid">
+            <!-- <div class="row">
+                <div class="fourteen wide column"></div>
+                <div class="one wide column bigFont exitCall"><i class=" white remove  icon"></i></div>
+            </div> -->
+            
+            <div class=" center aligned row">
+                
+                <div class="three wide column callButton greenButton"><img src="/images/layouts.png" alt=""></div>
+                <div class="one wide column"></div>
+                <div class="three wide column callButton greenButton"><img src="/images/layouts.png" alt=""></div>
+                <div class="one wide column"></div>
+                <div class="three wide column callButton greenButton"><img src="/images/layouts.png" alt=""></div>
+            </div>
+        </div>
+        {{/if}}
+
         
     </div>
 </div>

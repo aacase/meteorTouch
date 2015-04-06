@@ -14,7 +14,7 @@ Template['contactList'].helpers({
 	record:function(){return Session.get('record')},
 	move:function(){return Session.get('move')},
 	recents:function(){return Session.get('recents')},
-	favoritesList:function(){return Session.get('favoritesList')},
+	favorites:function(){return Session.get('favorites')},
 	recentsList:function(){return Session.get('recentsList')}
 });
 
@@ -25,6 +25,12 @@ Template['contactList'].events({
 	},
 	'click .whatsInAName' : function () {
 	  Session.set('optionsOverlay', true)
+	  Router.go('/inCall');
+
+	  
+	},
+	'click .favName' : function () {
+	  Session.set('favorites', true)
 	  Router.go('/inCall');
 
 	  

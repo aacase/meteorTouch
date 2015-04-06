@@ -18,6 +18,8 @@ Template.homeScreen.helpers({
 	keypad:function(){return Session.get('keypad')},
 	recordingIcon:function(){return Session.get('recordingIcon')},
 	system:function(){return Session.get('system')},
+	favorites:function(){return Session.get('favorites')},
+	callPresent:function(){return Session.get('callPresent')}
 
 
 
@@ -219,6 +221,23 @@ Template['homeScreen'].events({
 	 Session.set('location', 'Recents');
 	 
 	},
+
+	'click #favorites' : function () {
+	  // $('#dndButton').removeClass('.even')
+	 Session.set('homeScreen', false);
+	 Session.set('standardMenu', false);
+	 Session.set('backScreen', true);
+
+	 Session.set('myInfo', false);
+	 Session.set('call', false);
+	 // Session.set('callUI', true);
+	 Session.set('directory', false);
+	 Session.set('recents', false);
+	 Session.set('favorites', true);
+
+	 Session.set('location', 'Favorites');
+	 
+	},
 	'click #keypad' : function () {
 	  // $('#dndButton').removeClass('.even')
 	 Session.set('standardMenu', false);
@@ -229,6 +248,27 @@ Template['homeScreen'].events({
 	 Session.set('backScreen', true);
 	 Session.set('keypad', true);
 	 Session.set('location', 'Keypad');
+	
+	},
+	'click #callPresent' : function () {
+	  // $('#dndButton').removeClass('.even')
+	 Session.set('standardMenu', false);
+	 Session.set('homeScreen', false);
+	 Session.set('myInfo', false);
+	 Session.set('call', false);
+	 Session.set('directory', false);
+	 Session.set('backScreen', true);
+
+	 // Session.set('keypad', true);
+	 Session.set('callUI', false);
+	 Session.set('location', 'Present');
+	 Session.set('callPresent', true);
+	 Session.set('recents', false);
+	 Session.set('incomingCall', false);
+	  Session.set('outboundCall', false);
+	   Session.set('optionsOverlay', false)
+	    Session.set('favorites', false)
+	 Router.go('/inCall')
 	
 	},
 	'click #volume' : function () {

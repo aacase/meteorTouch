@@ -21,7 +21,7 @@
 			<div class="three wide column noPaddingRight shadowCat">
 				{{#if standardMenu}}
 				<div class="row">
-					<div class="sixteen wide column sideNav odd" id="launchButton"><div class="center aligned"><h1><i class=" space shuttle icon"></i></h1></div><div class='center aligned'>Launch</div></div>
+					<div class="sixteen wide column sideNav odd" id="launchButton"><div class="center aligned"><h1><img class="menuImg" src="/images/launch2.png" alt=""></h1></div><div class='center aligned'>Launch</div></div>
 					<div class="sixteen wide column sideNav even" id="myInfo"><div class="center aligned"><h1><i class=" user icon"></i></h1></div><div class='center aligned'>My Info</div></div>
 					<div class="sixteen wide column sideNav odd" id='volume'><div class="center aligned"><h1><i class=" volume up icon"></i></h1></div><div class='center aligned'>Volume</div></div>
 					<div>{{{dndEnabled}}}</div>
@@ -83,7 +83,7 @@
 				{{#if call}}
 				<div class="features ui grid noMargin" style="overflow-y:auto;white-space:nowrap;">
 					<div class="five wide column greyOdd" id="recents"><div class="iconDown center aligned"><i class="wait icon"></i></div><div class="iconDescription center aligned"><h1>Recents</h1></div></div>
-					<div class="five wide column greyEven" id="favorites"><div class="iconDown center aligned"><i class="star icon"></i></div><div class="iconDescription center aligned"><h1>Favorites</h1></div></div>
+					<div class="five wide column greyEven" id="favorites"><div class="iconDown center aligned"><i class="star icon"></i></div><div class="iconDescription center aligned" id='favorites'><h1>Favorites</h1></div></div>
 					<div class="five wide column greyOdd" id="meetings"><div class="meetingDown center aligned"><img src="/images/meeting2.png" alt=""></div><div class="iconDescription center aligned"><h1>Meetings</h1></div></div>
 					<div class="five wide column greyEven" id='directory'><div class="iconDown center aligned"><i class="users icon"></i></div><div class="iconDescription center aligned"><h1>Directory</h1></div></div>
 					<div class="five wide column greyOdd " id='keypad'><div class="iconDown center aligned"><i class="text telephone icon"></i></div><div class="iconDescription center aligned"><h1>Keypad</h1></div></div>
@@ -92,7 +92,7 @@
 				{{#if callUI}}
 				<div class="features ui grid noMargin" style="overflow-y:auto;white-space:nowrap;">
 					<div class="four wide column greyOdd" id="call"><div class="iconDown center aligned"><i class="add user icon"></i></div><div class="iconDescription center aligned"><h1>Add</h1></div></div>
-					<div class="five wide column greyEven" id="present"><div class="iconDown center aligned"><i class="laptop icon"></i></div><div class="iconDescription center aligned"><h1>Present</h1></div></div>
+					<div class="five wide column greyEven" id="callPresent"><div class="iconDown center aligned"><i class="laptop icon"></i></div><div class="iconDescription center aligned" id='callPresent'><h1>Present</h1></div></div>
 					<div class="five wide column greyOdd" id='move'><div class="iconDown center aligned"><i class="move icon"></i></div><div class="iconDescription center aligned"><h1>Move</h1></div></div>
 					<div class="five wide column greyEven" id="record"><div class="iconDown center aligned"><i class=" toggle right icon"></i></div><div class="iconDescription center aligned"><h1>Record</h1></div></div>
 			
@@ -119,6 +119,9 @@
 				{{/if}}
 				{{#if keypad}}
 				{{> keypadView}}
+				{{/if}}
+				{{#if callPresent}}
+				{{> inCall}}
 				{{/if}}
 			</div>
 			

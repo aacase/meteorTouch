@@ -101,9 +101,57 @@
 
 {{/if}}
 {{#if favorites}}
-<p>This is the favorite UI (but not my favorite)</p>
-{{#each favoritesList}}
-<p>This is the row for {{name}}</p>
-{{/each}}
+<div style="overflow-y:auto;  height: 470px;">
+	{{> esInput index="cloudUsers" placeholder="Search..." }}
+	<div style="overflow-y:auto;  height: 470px;">
+	<table class="ui striped celled table">
+	
+	   <tbody>
+	      
+	       {{#esEach index="cloudUsers"}}
+	           {{#if available}}
+	           			<tr>
+	           			<td><i class="green circle icon"></i><span class="favName">{{name}} </span><br>{{extension}}</td>
+	           			<td class='directoryPhone center aligned'><h1><i class="call icon canCall"></i></h1></td>
+	           			<td class='availableCell center aligned'><h1>★</h1></td>
+	           			</tr>
+	           			{{else}}
+					<tr>
+	           			<td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>
+	           			<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+	           			<td class='availableCell center aligned'><h1 class='notAvailable'>★</h1></td>
+	           		</tr>
+	           			{{/if}}
+
+	       {{/esEach}}
+	       {{#ifEsHasNoResults index="cloudUsers"}}
+	               <div class="no-results">No results found!</div>
+	        {{/ifEsHasNoResults}}
+	        {{#ifEsInputIsEmpty index="cloudUsers"}}
+	        	{{# each recentsList}}
+	        	<tr>
+	        		
+	        		{{#if available}}
+	        		<td><i class="green circle icon"></i><span class="favName">{{name}} </span><span class="date">THU</span><br>{{extension}}</td>
+	        		<td class='directoryPhone center aligned'><a href='/call/{{_id}}'><h1><i class="call icon canCall"></i></h1></a></td>
+	        		<td class='availableCell center aligned'><h1>★</h1></td>
+	        		{{else}}
+	        		<td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>
+	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+	        		<td class='availableCell center aligned'><h1 class='notAvailable'>★</h1></td>
+	        		{{/if}}
+	        	</tr>
+	        	{{/each}}
+	        {{/ifEsInputIsEmpty}}	
+
+	      
+	   </tbody>
+	
+	</table>
+	</div>
+	  
+</div>
+
+
 {{/if}}
 </template>
