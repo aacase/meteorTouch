@@ -21,11 +21,13 @@ Template['contactList'].helpers({
 Template['contactList'].events({
 	'click .canCall' : function () {
 	  Session.set('outboundCall', true)
-	  Router.go('/inCall');
+	  // Router.go('/call/{{_id}}');
 	},
 	'click .whatsInAName' : function () {
 	  Session.set('optionsOverlay', true)
 	  Router.go('/inCall');
+
+	  
 	},
 });
 
