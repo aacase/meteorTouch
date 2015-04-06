@@ -15,6 +15,10 @@ Template['inCall'].events({
 	},
 	'click .exitEdit' : function () {
 	Session.set('optionsOverlay', false)
+	Session.set('incomingCall', false);
+	Session.set('callPresent', false);
+	Session.set('inCallMenu', false);
+	Session.set('standardMenu', true);
 	  Router.go('/homescreen');
 	},
 	'click .endCall' : function () {
