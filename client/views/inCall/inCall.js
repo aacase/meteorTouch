@@ -4,7 +4,8 @@ Template['inCall'].helpers({
 	optionsOverlay:function(){return Session.get('optionsOverlay')},
 	favorites:function(){return Session.get('favorites')},
 	callPresent:function(){return Session.get('callPresent')},
-	directoryOverlay:function(){return Session.get('directoryOverlay')}
+	directoryOverlay:function(){return Session.get('directoryOverlay')},
+	recentOverlay:function(){return Session.get('recentOverlay')}
 });
 
 Template['inCall'].events({
@@ -22,6 +23,28 @@ Template['inCall'].events({
 	Session.set('standardMenu', true);
 	  Router.go('/homescreen');
 	},
+	'click .exitPresent' : function () {
+	Session.set('optionsOverlay', false)
+	Session.set('incomingCall', false);
+	Session.set('callPresent', false);
+	Session.set('backScreen', false);
+	Session.set('inCallMenu', true);
+	Session.set('callUI', true);
+	Session.set('standardMenu', false);
+	  Router.go('/homescreen');
+	},
+	'click .exitRecent' : function () {
+	Session.set('optionsOverlay', false);
+	Session.set('incomingCall', false);
+	Session.set('callPresent', false);
+	Session.set('backScreen', true);
+	Session.set('recents', true);
+	Session.set('recentOverlay', false)
+	Session.set('inCallMenu', false);
+	Session.set('callUI', false);
+	Session.set('standardMenu', false);
+	  Router.go('/homescreen');
+	},
 	'click .endCall' : function () {
 	Session.set('incomingCall', false);
 	Session.set('callPresent', false);
@@ -29,6 +52,19 @@ Template['inCall'].events({
 	Session.set('standardMenu', true);
 	  Router.go('/homescreen');
 	},
+
+	'click .audioCall' : function () {
+	Session.set('recentOverlay', false);
+	Session.set('outboundCall', true);
+	Session.set('standardMenu', false);
+		Session.set('backScreen',false);
+		Session.set('callUI',true);
+		Session.set('inCallMenu', true)
+		Session.set('callPresent', false)
+	setTimeout(function(){ Router.go('/homescreen') }, 3000);
+	  
+	},
+	
 	
 
 	'click #DND' : function () {
@@ -57,6 +93,10 @@ Template.inCall.rendered=function(){
 	// 	setTimeout(function(){ Router.go('/homescreen') }, 3000);
 	}
 
+	else if( Session.get('recentOverlay')){
+		Session.set('outboundCall', false);
+	}
+
 	else if (!Session.get('incomingCall') && (!Session.get('optionsOverlay'))&& (!Session.get('favorites'))){
 		Session.set('standardMenu', false);
 		Session.set('backScreen',false);
@@ -80,6 +120,7 @@ Template.inCall.rendered=function(){
 		Session.set('callUI',true);
 		Session.set('inCallMenu', true)
 		Session.set('callPresent', false)
+		Session.set('outboundCall', false);
 		setTimeout(function(){ Router.go('/homescreen') }, 3000);
 	}
 	

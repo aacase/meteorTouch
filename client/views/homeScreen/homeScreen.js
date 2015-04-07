@@ -206,7 +206,7 @@ Template['homeScreen'].events({
 	 // Session.set('callUI', true);
 	 Session.set('directory', false);
 	 Session.set('location', 'Call');
-	 Session.set('recordingIcon', '<i class="record icon pukeGreen">')
+	 
 	 
 	},
 	'click #recents' : function () {
@@ -272,7 +272,7 @@ Template['homeScreen'].events({
 	'click #callPresent' : function () {
 	  // $('#dndButton').removeClass('.even')
 	 Session.set('standardMenu', false);
-	 Session.set('homeScreen', false);
+	 Session.set('homeScreen', true);
 	 Session.set('myInfo', false);
 	 Session.set('call', false);
 	 Session.set('directory', false);
@@ -294,6 +294,13 @@ Template['homeScreen'].events({
 	  $('.modal').modal('show');
 	 
 	 
+	},
+	'click #mute' : function(){
+		if (Session.get('recordingIcon')=='<i class="mute icon pukeGreen">'){
+		Session.set('recordingIcon', '')
+		}else{
+			Session.set('recordingIcon', '<i class="mute icon pukeGreen">')
+		}
 	},
 	'click .moreButton' : function () {
 	  Session.set('inCallMenu', false);

@@ -31,6 +31,12 @@ Template['contactList'].events({
 
 	  
 	},
+	'click .recentName' : function () {
+	  Session.set('recentOverlay', true)
+	  
+
+	  
+	},
 	'click .directoryName' : function () {
 	  // Session.set('optionsOverlay', true)
 	  Session.set('directoryOverlay', true);
@@ -40,7 +46,7 @@ Template['contactList'].events({
 	},
 	'click .favName' : function () {
 	  Session.set('favorites', true)
-	  Router.go('/inCall');
+	  // Router.go('/inCall');
 
 	  
 	},

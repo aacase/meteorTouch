@@ -73,8 +73,8 @@
             <div class="ui grid">
                 <div class="center aligned row whiteText">
                     
-                    <div class="sixteen wide column"><h3>David Morrison</h3></div>
-                    <div class="sixteen wide column"><h3>100829@lifesizecloud.com</h3><br></div>
+                    <div class="sixteen wide column"><h3>{{name}}</h3></div>
+                    <div class="sixteen wide column"><h3>{{extension}}@lifesizecloud.com</h3><br></div>
 
                 </div>
                 <div class=" center aligned row">
@@ -98,7 +98,7 @@
                 <div class="one wide column bigFont exitCall"><i class=" white remove  icon"></i></div>
             </div> -->
             <div class="fourteen wide column"></div>
-            <div class="two wide column"><div class=" bigFont exitEdit"><i class=" white remove  icon"></i></div></div>
+            <div class="two wide column"><div class=" bigFont exitPresent"><i class=" white remove  icon"></i></div></div>
             <div class="sixteen wide column"></div>
             <div class=" center aligned row">
 
@@ -135,7 +135,26 @@
         </div>
         {{/if}}
 
-        
+       {{#if recentOverlay}}
+         <div class="ui grid">
+           <!-- <div class="row">
+               <div class="fourteen wide column"></div>
+               <div class="one wide column bigFont exitCall"><i class=" white remove  icon"></i></div>
+           </div> -->
+           <div class="fourteen wide column"></div>
+           <div class="two wide column"><div class=" bigFont exitRecent"><i class=" white remove  icon"></i></div></div>
+           <div class="sixteen wide column"></div>
+           <div class=" center aligned row">
+
+              
+               <div class="three wide column callButton greenButton audioCall"><a href="/call/{{_id}}"><img src="/images/layouts.png" alt=""> Audio Call</a></div>
+               <div class="one wide column"></div>
+               <div class="three wide column callButton greenButton"><img src="/images/layouts.png" alt=""></div>
+               <div class="one wide column"></div>
+               <div class="three wide column callButton greenButton"><img src="/images/layouts.png" alt=""></div>
+           </div>
+       </div>
+       {{/if}} 
     </div>
 </div>
 </template>

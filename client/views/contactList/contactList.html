@@ -33,7 +33,7 @@
 		<tr>
 			
 			{{#if available}}
-			<td><i class="green circle icon"></i><span class="whatsInAName">{{name}} </span><span class="date">THU</span><br>{{extension}}</td>
+			<td><a href="/call/{{_id}}"><i class="green circle icon"></i><span class="recentName">{{name}} </span><span class="date">THU</span><br>{{extension}}</a></td>
 			<td class='directoryPhone center aligned'><a href='/call/{{_id}}'><h1><i class="call icon canCall"></i></h1></a></td>
 			<td class='availableCell center aligned'><h1>★</h1></td>
 			{{else}}
@@ -111,7 +111,7 @@
 	       {{#esEach index="cloudUsers"}}
 	           {{#if available}}
 	           			<tr>
-	           			<td><i class="green circle icon"></i><span class="favName">{{name}} </span><br>{{extension}}</td>
+	           			<td><a href="/call/{{_id}}"><i class="green circle icon"></i><span class="favName">{{name}} </span><br>{{extension}}</a></td>
 	           			<td class='directoryPhone center aligned'><h1><i class="call icon canCall"></i></h1></td>
 	           			<td class='availableCell center aligned'><h1>★</h1></td>
 	           			</tr>
@@ -132,7 +132,7 @@
 	        	<tr>
 	        		
 	        		{{#if available}}
-	        		<td><i class="green circle icon"></i><span class="favName">{{name}} </span><span class="date">THU</span><br>{{extension}}</td>
+	        		<td><a href="/call/{{_id}}"><i class="green circle icon"></i><span class="favName">{{name}} </span><span class="date">THU</span><br>{{extension}}</a></td>
 	        		<td class='directoryPhone center aligned'><a href='/call/{{_id}}'><h1><i class="call icon canCall"></i></h1></a></td>
 	        		<td class='availableCell center aligned'><h1>★</h1></td>
 	        		{{else}}
