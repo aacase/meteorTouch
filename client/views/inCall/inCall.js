@@ -3,7 +3,8 @@ Template['inCall'].helpers({
 	outboundCall:function(){return Session.get('outboundCall')},
 	optionsOverlay:function(){return Session.get('optionsOverlay')},
 	favorites:function(){return Session.get('favorites')},
-	callPresent:function(){return Session.get('callPresent')}
+	callPresent:function(){return Session.get('callPresent')},
+	directoryOverlay:function(){return Session.get('directoryOverlay')}
 });
 
 Template['inCall'].events({
@@ -47,6 +48,11 @@ Template['inCall'].events({
 Template.inCall.rendered=function(){
 	//when a call is placed, show the call UI for 5 seconds and then go to the main UI again in call
 	if( Session.get('callPresent')){
+		// Session.set('callPresent', false)
+	// 	setTimeout(function(){ Router.go('/homescreen') }, 3000);
+	}
+
+	else if( Session.get('directoryOverlay')){
 		// Session.set('callPresent', false)
 	// 	setTimeout(function(){ Router.go('/homescreen') }, 3000);
 	}

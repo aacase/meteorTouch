@@ -29,6 +29,13 @@ Template['contactList'].events({
 
 	  
 	},
+	'click .directoryName' : function () {
+	  // Session.set('optionsOverlay', true)
+	  Session.set('directoryOverlay', true);
+	  Router.go('/inCall');
+
+	  
+	},
 	'click .favName' : function () {
 	  Session.set('favorites', true)
 	  Router.go('/inCall');
