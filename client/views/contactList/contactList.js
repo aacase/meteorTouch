@@ -15,7 +15,9 @@ Template['contactList'].helpers({
 	move:function(){return Session.get('move')},
 	recents:function(){return Session.get('recents')},
 	favorites:function(){return Session.get('favorites')},
-	recentsList:function(){return Session.get('recentsList')}
+	recentsList:function(){return Session.get('recentsList')},
+	meetingsList:function(){return Session.get('meetingsList')},
+	meetings:function(){return Session.get('meetings')},
 });
 
 Template['contactList'].events({
@@ -57,4 +59,10 @@ Template.contactList.rendered = function(){
 	Session.set('favoritesList', favoritesList);
 	Session.set('recentsList', recentsList);
 
+	var meetingsList=[];
+	var meetings = cloudMeetings.find();
+	meetings.forEach(function(meeting){
+		meetingsList.push(meeting)
+	});
+	Session.set('meetingsList', meetingsList);
 }

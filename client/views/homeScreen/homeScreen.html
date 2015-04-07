@@ -32,10 +32,19 @@
 				{{/if}}
 				{{#if inCallMenu}}
 				<div class="row">
+					
+					<div class="sixteen wide column sideNav even moreButton" ><div class="center aligned"><h1><i class=" horizontal ellipsis icon"></i></h1></div><div class='center aligned'>More</div></div>
 					<div class="sixteen wide column sideNav endCall" id="endCall"><div class="center aligned"><img src="/images/end.png" alt=""></div><div class='center aligned'>End</div></div>
-					<div class="sixteen wide column sideNav even" id="myInfo"><div class="center aligned"><h1><i class=" user icon"></i></h1></div><div class='center aligned'>UI</div></div>
-					<div class="sixteen wide column sideNav odd"><div class="center aligned"><h1><i class=" volume up icon"></i></h1></div><div class='center aligned'>is</div></div>
-					<div class="sixteen wide column sideNav even " id="dndButton"><div class="center aligned" id="dndText"><h1><i class=" dont icon"></i></h1></div><div class='center aligned' id='dndText2'>Active</div></div>
+					<div class="sixteen wide column sideNav odd"><div class="center aligned"><h1><i class=" mute icon"></i></h1></div><div class='center aligned'>Mute Audio</div></div>
+					<div class="sixteen wide column sideNav even " id="dndButton"><div class="center aligned" id="dndText"><h1><img src="/images/muteVideo.png" alt=""></h1></div><div class='center aligned' id='dndText2'>Mute Video</div></div>
+				</div>
+				{{/if}}
+				{{#if inCallMenu2}}
+				<div class="row">
+					<div class="sixteen wide column sideNav odd closeIcon"><div class="center aligned"><h1><i class=" close icon"></i></h1></div><div class='center aligned'>Close</div></div>
+					<div class="sixteen wide column sideNav even" id="myInfo"><div class="center aligned"><h1><i class=" user icon"></i></h1></div><div class='center aligned'>My Info</div></div>
+					<div class="sixteen wide column sideNav odd"><div class="center aligned"><h1><i class=" volume up icon"></i></h1></div><div class='center aligned'>Volume</div></div>
+					<div>{{{dndEnabled}}}</div>
 				</div>
 				{{/if}}
 				
@@ -117,9 +126,13 @@
 				{{#if recents}}
 				{{> contactList}}
 				{{/if}}
+				{{#if meetings}}
+				{{> contactList}}
+				{{/if}}
 				{{#if keypad}}
 				{{> keypadView}}
 				{{/if}}
+
 				
 			</div>
 			

@@ -1,0 +1,32 @@
+user_yelp:
+  name: 'Yelp Meeting'
+  extension: 12345
+  available: true
+user_twitter:
+  name: 'Twitter Meeting'
+  extension: 54321
+  available: false
+user_mbu:
+  name: 'MBU Team Meeting'
+  extension: 43456354
+  available: true
+user_sprint:
+  name: 'Weekly Sprint'
+  extension: 345543
+  available: true
+user_senior_devs:
+  name: 'Sr. Dev Huddle'
+  extension: 2343455
+  available: false
+user_big_conference:
+  name: 'Large Conference Room'
+  extension: 1
+  available: true
+user_small:
+  name: 'Small Conference Room'
+  extension: 1232433342
+  available: false
+user_mars:
+  name: 'International Space Station'
+  extension: 1234345345345345
+  available: true

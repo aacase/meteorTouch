@@ -10,6 +10,7 @@ Template.homeScreen.helpers({
 	backScreen:function(){return Session.get('backScreen')},
 	callUI:function(){return Session.get('callUI')},
 	inCallMenu:function(){return Session.get('inCallMenu')},
+	inCallMenu2:function(){return Session.get('inCallMenu2')},
 	standardMenu:function(){return Session.get('standardMenu')},
 	dndEnabled:function(){return(Session.get('dndEnabled'))},
 	record:function(){return Session.get('record')},
@@ -19,6 +20,7 @@ Template.homeScreen.helpers({
 	recordingIcon:function(){return Session.get('recordingIcon')},
 	system:function(){return Session.get('system')},
 	favorites:function(){return Session.get('favorites')},
+	meetings:function(){return Session.get('meetings')},
 	callPresent:function(){return Session.get('callPresent')}
 
 
@@ -238,6 +240,23 @@ Template['homeScreen'].events({
 	 Session.set('location', 'Favorites');
 	 
 	},
+	'click #meetings' : function () {
+	  // $('#dndButton').removeClass('.even')
+	 Session.set('homeScreen', false);
+	 Session.set('standardMenu', false);
+	 Session.set('backScreen', true);
+
+	 Session.set('myInfo', false);
+	 Session.set('call', false);
+	 // Session.set('callUI', true);
+	 Session.set('directory', false);
+	 Session.set('recents', false);
+	 Session.set('favorites', false);
+	 Session.set('meetings', true);
+
+	 Session.set('location', 'Meetings');
+	 
+	},
 	'click #keypad' : function () {
 	  // $('#dndButton').removeClass('.even')
 	 Session.set('standardMenu', false);
@@ -273,6 +292,18 @@ Template['homeScreen'].events({
 	},
 	'click #volume' : function () {
 	  $('.modal').modal('show');
+	 
+	 
+	},
+	'click .moreButton' : function () {
+	  Session.set('inCallMenu', false);
+	  Session.set('inCallMenu2', true);
+	 
+	 
+	},
+	'click .closeIcon' : function () {
+	  Session.set('inCallMenu', true);
+	  Session.set('inCallMenu2', false);
 	 
 	 
 	},
