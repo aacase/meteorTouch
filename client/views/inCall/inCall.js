@@ -5,7 +5,8 @@ Template['inCall'].helpers({
 	favorites:function(){return Session.get('favorites')},
 	callPresent:function(){return Session.get('callPresent')},
 	directoryOverlay:function(){return Session.get('directoryOverlay')},
-	recentOverlay:function(){return Session.get('recentOverlay')}
+	recentOverlay:function(){return Session.get('recentOverlay')},
+	incomingUI:function(){return Session.get('incomingUI')}
 });
 
 Template['inCall'].events({
@@ -68,7 +69,7 @@ Template['inCall'].events({
 	
 
 	'click #DND' : function () {
-	Session.set('icon', "<i class='dont icon pukeGreen'></i>");
+	Session.set('icon', '<i class="dont icon pukeGreen"></i>');
 	
 	},
 	'click #ignore' : function () {
@@ -77,11 +78,33 @@ Template['inCall'].events({
 	Session.set('callUI',false);
 	Session.set('inCallMenu', false);
 	
-	}
+	},
+	'click .addFav' : function(){
+		console.log(this);
+		cloudUsers.update({_id:this._id},{$set:{name:this.name, extension:this.extension,available:this.available,favorite:true}});
+		Router.go('/')
+	}	
 
 });
 
 Template.inCall.rendered=function(){
+
+	if(Session.get('callCounter')>1){
+		Session.set('multipleCallers', true)
+		console.log("multiple callers?",Session.get('multipleCallers') )
+		Session.set('incomingUI', "<div class=' center aligned row'><div class='three wide column callButton greenButton'><div class='bigTime'><img src='/images/add.png' alt='></div><div class='><h2>Add</h2></div></div><div class='one wide column'></div><div class='three wide column callButton greenButton'><div class='bigTime'><img src='/images/add.png' alt='></div><div class='><h2>End & Answer</h2></div></div><div class='one wide column'></div><div class='three wide column callButton endCall' id='ignore'><div class='bigTime'><img src='/images/end.png' alt='></div><div class='><h2>Ignore</h2></div></div><div class='one wide column'></div><div class='three wide column callButton endCall' id='DND'><div class='bigTime'><img src='/images/dnd.png' alt='></div><div class='><h2>DND</h2></div></div></div></div>")
+
+	}
+	else{
+		Session.set('multipleCallers', false)
+		console.log("multiple callers?",Session.get('multipleCallers') )
+		Session.set('incomingUI', "<div class=' center aligned row'><div class='three wide column callButton greenButton audioCall'><a href='/call/{{_id}}'><img src='/images/layouts.png' alt=''> Audio Call</a></div><div class='one wide column'></div><div class='three wide column callButton greenButton'><img src='/images/layouts.png' alt=''></div><div class='one wide column'></div><div class='three wide column callButton endCall'><h1><i class='trash icon'></i></h1></div></div>")
+
+
+	}
+
+	
+
 	//when a call is placed, show the call UI for 5 seconds and then go to the main UI again in call
 	if( Session.get('callPresent')){
 		// Session.set('callPresent', false)
@@ -98,6 +121,8 @@ Template.inCall.rendered=function(){
 	}
 
 	else if (!Session.get('incomingCall') && (!Session.get('optionsOverlay'))&& (!Session.get('favorites'))){
+		Session.set('callCounter', Session.get('callCounter')+1);
+		console.log('call counter', Session.get('callCounter'))
 		Session.set('standardMenu', false);
 		Session.set('backScreen',false);
 		Session.set('callUI',true);

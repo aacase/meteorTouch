@@ -3,6 +3,7 @@ cloudUsers = new Mongo.Collection('cloudUsers');
 
 cloudUsers.attachSchema(
     new SimpleSchema({
+   
     name: {
       type: String
     },
@@ -10,6 +11,9 @@ cloudUsers.attachSchema(
       type: String
     },
     available: {
+      type: Boolean
+    },
+    favorite: {
       type: Boolean
     }
   })

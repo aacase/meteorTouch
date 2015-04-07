@@ -21,7 +21,9 @@ Template.homeScreen.helpers({
 	system:function(){return Session.get('system')},
 	favorites:function(){return Session.get('favorites')},
 	meetings:function(){return Session.get('meetings')},
-	callPresent:function(){return Session.get('callPresent')}
+	callPresent:function(){return Session.get('callPresent')},
+	mutipleCallers:function(){return Session.get('mutipleCallers')},
+	incomingUI:function(){return Session.get('incomingUI')},
 
 
 
@@ -60,6 +62,9 @@ Template.homeScreen.rendered = function(){
       step: .001
     });
     $('#slider').draggable();
+
+
+
     
 }
 
@@ -149,10 +154,11 @@ Template['homeScreen'].events({
 
 	  //adding logic here to determine what the back button does:
 
-	  if (Session.get('directory')||Session.get('recents')){
+	  if (Session.get('directory')||Session.get('recents')|| Session.get('favorites')){
 	  	Session.set('homeScreen', false);
 	  	Session.set('recents', false);
 	  	Session.set('myInfo', false);
+	  	Session.set('favorites', false);
 	  	Session.set('call', true);
 	  		 // Session.set('callUI', true);
 	  	Session.set('directory', false);
@@ -183,13 +189,21 @@ Template['homeScreen'].events({
 
 	'click #endCall' : function () {
 	  // $('#dndButton').removeClass('.even')
-	 Session.set('homeScreen', true);
+	if (Session.get('callCounter')>1){
+
+	 	Session.set('callCounter', Session.get('callCounter')-1);
+	}
+	else{
+		 Session.set('homeScreen', true);
 	 Session.set('standardMenu', true);
 	 Session.set('backScreen', false);
 	 Session.set('myInfo', false);
 	 Session.set('inCallMenu', false);
 	 Session.set('callUI', false);
 	 Session.set('location', 'Home');
+	 Session.set('callCounter', Session.get('callCounter')-1);
+	}
+	// console.log('call counter', Session.get('callCounter'))
 	 
 	},
 
@@ -295,6 +309,12 @@ Template['homeScreen'].events({
 	 
 	 
 	},
+	'click #add' : function () {
+	 Session.set('call', true);
+	 Session.set('callUI',false);
+	 
+	 
+	},
 	'click #mute' : function(){
 		if (Session.get('recordingIcon')=='<i class="mute icon pukeGreen">'){
 		Session.set('recordingIcon', '')
@@ -320,6 +340,7 @@ Template['homeScreen'].events({
 	 
 	},
 	'click #easterEgg' : function () {
+		Session.set('callCounter', Session.get('callCounter')+1);
 		Session.set('incomingCall',true);
 		setTimeout(function(){ Router.go('/inCall') }, 3000);
 	},

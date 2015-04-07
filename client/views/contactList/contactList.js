@@ -50,6 +50,23 @@ Template['contactList'].events({
 
 	  
 	},
+	'click .favAdd' : function () {
+	  // Session.set('favorites', true)
+	  // Router.go('/inCall');
+	  if (this.favorite==true){
+	
+	 cloudUsers.update({_id:this._id},{$set:{name:this.name, extension:this.extension,available:this.available,favorite:false}});
+	 
+	}
+	else if (this.favorite==false){
+		cloudUsers.update({_id:this._id},{$set:{name:this.name, extension:this.extension,available:this.available,favorite:true}});
+		
+
+	}
+
+
+	  
+	},
 });
 
 

@@ -30,18 +30,33 @@
 	
 	<tbody>
 		{{# each recentsList}}
-		<tr>
+		
 			
-			{{#if available}}
-			<td><a href="/call/{{_id}}"><i class="green circle icon"></i><span class="recentName">{{name}} </span><span class="date">THU</span><br>{{extension}}</a></td>
-			<td class='directoryPhone center aligned'><a href='/call/{{_id}}'><h1><i class="call icon canCall"></i></h1></a></td>
-			<td class='availableCell center aligned'><h1>★</h1></td>
-			{{else}}
-			<td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>
-			<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
-			<td class='availableCell center aligned'><h1 class='notAvailable'>★</h1></td>
-			{{/if}}
-		</tr>
+			{{#if and available favorite}}
+			<tr>
+	        		<td><a href="/call/{{_id}}"><i class="green circle icon"></i><span class="favName">{{name}} </span><span class="date">THU</span><br>{{extension}}</a></td>
+	        		<td class='directoryPhone center aligned'><a href='/call/{{_id}}'><h1><i class="call icon canCall"></i></h1></a></td>
+	        		<td class='availableCell center aligned'><h1>★</h1></td></tr>
+	        		{{/if}}
+	        		{{#if not favorite available }}
+	        		<tr><td><i class="green  circle icon"></i>{{name}} <br>{{extension}}</td>
+	        		<td class='center aligned'><h1><i class="  call icon"></i></h1></td>
+	        		<td class='availableCell center aligned'><h1 class='notAvailable'>★</h1></td></tr>
+	        		{{/if}}
+	        		{{#if not available favorite}}
+	        		<tr>
+	        		<td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>
+	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+	        		<td class='availableCell center aligned'><h1 class=''>★</h1></td> </tr>
+	        		{{/if}}
+	        		{{#if neither available favorite}}
+	        		<tr>
+	        		<td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>
+	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+	        		<td class='availableCell center aligned'><h1 class='notAvailable'>★</h1></td></tr>
+	        		{{/if}}
+
+		
 		{{/each}}
 	</tbody>
 </table>
@@ -56,38 +71,64 @@
 	   <tbody>
 	      
 	       {{#esEach index="cloudUsers"}}
-	           {{#if available}}
-	           			<tr>
-	           			<td><i class="green circle icon"></i><span class="directoryName">{{name}} </span><br>{{extension}}</td>
-	           			<td class='directoryPhone center aligned'><h1><i class="call icon canCall"></i></h1></td>
-	           			<td class='availableCell center aligned'><h1>★</h1></td>
-	           			</tr>
-	           			{{else}}
-					<tr>
-	           			<td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>
-	           			<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
-	           			<td class='availableCell center aligned'><h1 class='notAvailable'>★</h1></td>
-	           		</tr>
-	           			{{/if}}
+	           {{#if and available favorite}}
+			<tr>
+	        		<td><a href="/call/{{_id}}"><i class="green circle icon"></i><span class="favName">{{name}} </span><span class="date">THU</span><br>{{extension}}</a></td>
+	        		<td class='directoryPhone center aligned'><a href='/call/{{_id}}'><h1><i class="call icon canCall"></i></h1></a></td>
+	        		<td class='availableCell center aligned'><h1>★</h1></td></tr>
+	        		{{/if}}
+	        		{{#if not favorite available }}
+	        		<tr><td><i class="green  circle icon"></i>{{name}} <br>{{extension}}</td>
+	        		<td class='center aligned'><h1><i class="  call icon"></i></h1></td>
+	        		<td class='availableCell center aligned'><h1 class='notAvailable'>★</h1></td></tr>
+	        		{{/if}}
+	        		{{#if not available favorite}}
+	        		<tr>
+	        		<td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>
+	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+	        		<td class='availableCell center aligned'><h1 class=''>★</h1></td> </tr>
+	        		{{/if}}
+	        		{{#if neither available favorite}}
+	        		<tr>
+	        		<td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>
+	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+	        		<td class='availableCell center aligned'><h1 class='notAvailable'>★</h1></td></tr>
+	        		{{/if}}
 
+		
+		
 	       {{/esEach}}
 	       {{#ifEsHasNoResults index="cloudUsers"}}
 	               <div class="no-results">No results found!</div>
 	        {{/ifEsHasNoResults}}
 	        {{#ifEsInputIsEmpty index="cloudUsers"}}
 	        	{{# each recentsList}}
-	        	<tr>
-	        		
-	        		{{#if available}}
-	        		<td><i class="green circle icon"></i><span class="directoryName">{{name}} </span><span class="date">THU</span><br>{{extension}}</td>
+	        	{{#if and available favorite}}
+			<tr>
+	        		<td><a href="/call/{{_id}}"><i class="green circle icon"></i><span class="favName">{{name}} </span><span class="date">THU</span><br>{{extension}}</a></td>
 	        		<td class='directoryPhone center aligned'><a href='/call/{{_id}}'><h1><i class="call icon canCall"></i></h1></a></td>
-	        		<td class='availableCell center aligned'><h1>★</h1></td>
-	        		{{else}}
+	        		<td class='availableCell center aligned'><h1>★</h1></td></tr>
+	        		{{/if}}
+	        		{{#if not favorite available }}
+	        		<tr><td><i class="green  circle icon"></i>{{name}} <br>{{extension}}</td>
+	        		<td class='center aligned'><h1><i class="  call icon"></i></h1></td>
+	        		<td class='availableCell center aligned'><h1 class='notAvailable'>★</h1></td></tr>
+	        		{{/if}}
+	        		{{#if not available favorite}}
+	        		<tr>
 	        		<td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>
 	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
-	        		<td class='availableCell center aligned'><h1 class='notAvailable'>★</h1></td>
+	        		<td class='availableCell center aligned'><h1 class=''>★</h1></td> </tr>
 	        		{{/if}}
-	        	</tr>
+	        		{{#if neither available favorite}}
+	        		<tr>
+	        		<td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>
+	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+	        		<td class='availableCell center aligned'><h1 class='notAvailable'>★</h1></td></tr>
+	        		{{/if}}
+
+		
+		
 	        	{{/each}}
 	        {{/ifEsInputIsEmpty}}	
 
@@ -109,18 +150,18 @@
 	   <tbody>
 	      
 	       {{#esEach index="cloudUsers"}}
-	           {{#if available}}
+	           {{#if and available favorite}}
 	           			<tr>
 	           			<td><a href="/call/{{_id}}"><i class="green circle icon"></i><span class="favName">{{name}} </span><br>{{extension}}</a></td>
 	           			<td class='directoryPhone center aligned'><h1><i class="call icon canCall"></i></h1></td>
 	           			<td class='availableCell center aligned'><h1>★</h1></td>
 	           			</tr>
-	           			{{else}}
+	           			<!-- {{else}}
 					<tr>
 	           			<td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>
 	           			<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
 	           			<td class='availableCell center aligned'><h1 class='notAvailable'>★</h1></td>
-	           		</tr>
+	           		</tr> -->
 	           			{{/if}}
 
 	       {{/esEach}}
@@ -131,14 +172,19 @@
 	        	{{# each recentsList}}
 	        	<tr>
 	        		
-	        		{{#if available}}
+	        		{{#if and available favorite}}
 	        		<td><a href="/call/{{_id}}"><i class="green circle icon"></i><span class="favName">{{name}} </span><span class="date">THU</span><br>{{extension}}</a></td>
 	        		<td class='directoryPhone center aligned'><a href='/call/{{_id}}'><h1><i class="call icon canCall"></i></h1></a></td>
 	        		<td class='availableCell center aligned'><h1>★</h1></td>
-	        		{{else}}
+	        		<!-- {{else}}
 	        		<td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>
 	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
-	        		<td class='availableCell center aligned'><h1 class='notAvailable'>★</h1></td>
+	        		<td class='availableCell center aligned'><h1 class='notAvailable'>★</h1></td> -->
+	        		{{/if}}
+	        		{{#if not available favorite }}
+	        		<td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>
+	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+	        		<td class='availableCell center aligned'><h1 class=''>★</h1></td>
 	        		{{/if}}
 	        	</tr>
 	        	{{/each}}
