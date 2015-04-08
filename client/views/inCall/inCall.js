@@ -6,7 +6,12 @@ Template['inCall'].helpers({
 	callPresent:function(){return Session.get('callPresent')},
 	directoryOverlay:function(){return Session.get('directoryOverlay')},
 	recentOverlay:function(){return Session.get('recentOverlay')},
-	incomingUI:function(){return Session.get('incomingUI')}
+	incomingUI:function(){return Session.get('incomingUI')},
+	favoriteUser:function(){if (this.favorite){
+		return true
+	}else{return false}
+	}
+
 });
 
 Template['inCall'].events({
@@ -83,7 +88,12 @@ Template['inCall'].events({
 		console.log(this);
 		cloudUsers.update({_id:this._id},{$set:{name:this.name, extension:this.extension,available:this.available,favorite:true}});
 		Router.go('/')
-	}	
+	},
+	'click .removeFav' : function(){
+		console.log(this);
+		cloudUsers.update({_id:this._id},{$set:{name:this.name, extension:this.extension,available:this.available,favorite:false}});
+		Router.go('/')
+	}		
 
 });
 
