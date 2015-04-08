@@ -1,4 +1,6 @@
 Template['inCall'].helpers({
+	activeCall:function(){return activeCalls},
+	callEndOverlay:function(){return Session.get('callEndOverlay')},
 	incomingCall:function(){return Session.get('incomingCall')},
 	outboundCall:function(){return Session.get('outboundCall')},
 	optionsOverlay:function(){return Session.get('optionsOverlay')},
@@ -20,6 +22,16 @@ Template['inCall'].events({
 	'click .exitCall' : function () {
 	Session.set('incomingCall', false)
 	  Router.go('/homescreen');
+	},
+
+	'click .canCall' : function () {
+	  Session.set('outboundCall', true)
+	  Session.set('favorites', false)
+	  Session.set('favorite', false)
+	  Session.set('recentOverlay', false)
+	  Router.go('/inCall');
+	  setTimeout(function(){ Router.go('/homescreen') }, 3000);
+
 	},
 	'click .exitEdit' : function () {
 	Session.set('optionsOverlay', false)
@@ -88,22 +100,89 @@ Template['inCall'].events({
 		console.log(this);
 		cloudUsers.update({_id:this._id},{$set:{name:this.name, extension:this.extension,available:this.available,favorite:true}});
 		Router.go('/')
+		 Session.set('homeScreen', true);
+	 Session.set('myInfo', false);
+	 Session.set('backScreen', false);
+	 Session.set('move', false);
+	 Session.set('record', false);
+	 Session.set('standardMenu', true);
+	 Session.set('location', 'Home');
+	 Session.set('call', false);
+	  Session.set('keypad', false);
+	  Session.set('system', false);
 	},
 	'click .removeFav' : function(){
 		console.log(this);
 		cloudUsers.update({_id:this._id},{$set:{name:this.name, extension:this.extension,available:this.available,favorite:false}});
 		Router.go('/')
-	}		
+		 Session.set('homeScreen', true);
+	 Session.set('myInfo', false);
+	 Session.set('backScreen', false);
+	 Session.set('move', false);
+	 Session.set('record', false);
+	 Session.set('standardMenu', true);
+	 Session.set('location', 'Home');
+	 Session.set('call', false);
+	  Session.set('keypad', false);
+	  Session.set('system', false);
+	  Session.set('favorites', false);
+	  Session.set('outboundCall', false)
+	},
+	'click #remove' : function(){
+		console.log(this);
+		cloudUsers.update({_id:this._id},{$set:{name:this.name, extension:this.extension,available:this.available,favorite:false}});
+		Router.go('/')
+		 Session.set('homeScreen', true);
+	 Session.set('myInfo', false);
+	 Session.set('backScreen', false);
+	 Session.set('move', false);
+	 Session.set('record', false);
+	 Session.set('standardMenu', true);
+	 Session.set('location', 'Home');
+	 Session.set('call', false);
+	  Session.set('keypad', false);
+	  Session.set('system', false);
+	  Session.set('favorites', false);
+	  Session.set('outboundCall', false)
+	},
+	'click #cancel' :function(){
+		 Session.set('standardMenu', true);
+	 Session.set('backScreen', false);
+	 Session.set('myInfo', false);
+	 Session.set('inCallMenu', false);
+	 Session.set('callUI', false);
+	 Session.set('location', 'Home');
+	},
+	'click .multipleEnd': function(){
+		console.log(this)
+		newActiveCalls=activeCalls.filterValue(this)
+		activeCalls=newActiveCalls
+		console.log(activeCalls)
+		
+		console.log(activeCalls)
+		if (activeCalls.length < 2){
+			Session.set('callEndOverlay', false)
+		}
+	}				
 
 });
 
 Template.inCall.rendered=function(){
+	// activeCalls.push(this);
 
-	if(Session.get('callCounter')>1){
+	if(Session.get('callCounter')>=1){
 		Session.set('multipleCallers', true)
 		console.log("multiple callers?",Session.get('multipleCallers') )
 		Session.set('incomingUI', "<div class=' center aligned row'><div class='three wide column callButton greenButton'><div class='bigTime'><img src='/images/add.png' alt='></div><div class='><h2>Add</h2></div></div><div class='one wide column'></div><div class='three wide column callButton greenButton'><div class='bigTime'><img src='/images/add.png' alt='></div><div class='><h2>End & Answer</h2></div></div><div class='one wide column'></div><div class='three wide column callButton endCall' id='ignore'><div class='bigTime'><img src='/images/end.png' alt='></div><div class='><h2>Ignore</h2></div></div><div class='one wide column'></div><div class='three wide column callButton endCall' id='DND'><div class='bigTime'><img src='/images/dnd.png' alt='></div><div class='><h2>DND</h2></div></div></div></div>")
-
+		// Session.set('callCounter', Session.get('callCounter')+1);
+		// console.log('call counter', Session.get('callCounter'))
+		Session.set('standardMenu', false);
+		Session.set('backScreen',false);
+		
+		Session.set('callUI',true);
+		Session.set('inCallMenu', true)
+		Session.set('callPresent', false)
+		setTimeout(function(){ Router.go('/homescreen') }, 3000);
 	}
 	else{
 		Session.set('multipleCallers', false)
@@ -129,6 +208,17 @@ Template.inCall.rendered=function(){
 	else if( Session.get('recentOverlay')){
 		Session.set('outboundCall', false);
 	}
+	else if (Session.get('outboundCall')){
+		Session.set('callCounter', Session.get('callCounter')+1);
+		console.log('call counter', Session.get('callCounter'))
+		Session.set('standardMenu', false);
+		Session.set('backScreen',false);
+		Session.set('callEndOverlay', false);
+		Session.set('callUI',true);
+		Session.set('inCallMenu', true)
+		Session.set('callPresent', false)
+		setTimeout(function(){ Router.go('/homescreen') }, 3000);
+	}
 
 	else if (!Session.get('incomingCall') && (!Session.get('optionsOverlay'))&& (!Session.get('favorites'))){
 		Session.set('callCounter', Session.get('callCounter')+1);
@@ -147,6 +237,7 @@ Template.inCall.rendered=function(){
 		Session.set('backScreen',false);
 		Session.set('callUI',true);
 		Session.set('inCallMenu', true)
+		Session.set('outboundCall', false)
 	}
 	
 	else {

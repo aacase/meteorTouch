@@ -23,16 +23,34 @@ Template['contactList'].helpers({
 Template['contactList'].events({
 	'click .canCall' : function () {
 	  Session.set('outboundCall', true)
-	  // Router.go('/call/{{_id}}');
+	  Session.set('favorites', false)
+	  Session.set('favorite', false)
+	  Session.set('recentOverlay', false)
+	  Session.set('callEndOverlay', false)
+	  activeCalls.push(this.name);
+	  console.log(Session.get('activeCalls'))
+	  Router.go('/inCall');
 	},
 	'click .whatsInAName' : function () {
 	  Session.set('optionsOverlay', true)
+	  Session.set('favorites', false)
+	  Session.set('outboundCall', false)
 	  Router.go('/inCall');
 
 	  
 	},
 	'click .recentName' : function () {
 	  Session.set('recentOverlay', true)
+	  Session.set('outboundCall', false)
+	  Session.set('favorites', false)
+	  Router.go('/inCall');
+	  
+
+	  
+	},
+	'click .recentName2' : function () {
+	  Session.set('recentOverlay', true)
+	 
 	  
 
 	  
@@ -40,12 +58,16 @@ Template['contactList'].events({
 	'click .directoryName' : function () {
 	  // Session.set('optionsOverlay', true)
 	  Session.set('directoryOverlay', true);
+
+	  Session.set('outboundCall', false)
 	  Router.go('/inCall');
 
 	  
 	},
 	'click .favName' : function () {
+	  Session.set('recentOverlay', false)
 	  Session.set('favorites', true)
+
 	  // Router.go('/inCall');
 
 	  

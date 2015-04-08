@@ -38,7 +38,7 @@
                 
                 <div class="three wide column "></div>
                 <div class="one wide column"></div>
-                <div class="three wide column callButton endCall"><div class="bigTime"><img src="/images/end.png" alt=""></div><div class=""><h2>CANCEL</h2></div></div>
+                <div class="three wide column callButton endCall" id='cancel'><div class="bigTime"><img src="/images/end.png" alt=""></div><div class=""><h2>CANCEL</h2></div></div>
                 <div class="one wide column"></div>
                 <div class="three wide column"></div>
             </div>
@@ -79,11 +79,11 @@
 
                 </div>
                 <div class=" center aligned row">
-                     <div class="three wide column callButton greenButton"><div class="bigTime"><img src="/images/callVideo.png" alt=""></div><div class=""><h2>Dial As Video</h2></div></div>
+                     <div class="three wide column callButton greenButton canCall"><a href="/call/{{_id}}"><div class="bigTime"><img src="/images/callVideo.png" alt=""></div><div class=""><h2>Dial As Video</h2></div></a></div>
                     <div class="one wide column"></div>
-                    <div class="three wide column callButton greenButton"><div class="bigTime"><img src="/images/call-outgoing.png" alt=""></div><div class=""><h2>Dial as Voice</h2></div></div>
+                    <div class="three wide column callButton greenButton canCall"><div class="bigTime"><img src="/images/call-outgoing.png" alt=""></div><div class=""><h2>Dial as Voice</h2></div></div>
                     <div class="one wide column"></div>
-                    <div class="three wide column callButton endCall" id='favDelete'><div class="bigTime">&#9733;</div><div class=""><h2>Remove From Favorites</h2></div></div>
+                    <div class="three wide column callButton endCall removeFav" id='favDelete'><div class="bigTime">&#9733;</div><div class=""><h2>Remove From Favorites</h2></div></div>
                     <div class="one wide column"></div>
                     <div class="three wide column callButton endCall" id="remove"><div class="bigTime"><h1><i class="white trash icon"></i></h1></div><div class=""><h2>Remove</h2></div></div>
                 </div>
@@ -144,15 +144,20 @@
            </div> -->
            <div class="fourteen wide column"></div>
            <div class="two wide column"><div class=" bigFont exitRecent"><i class=" white remove  icon"></i></div></div>
-           <div class="sixteen wide column"></div>
+           <div class="sixteen wide column"><div class="center aligned row whiteText">
+                    
+                    <div class="sixteen wide column"><h3>{{name}}</h3></div>
+                    <div class="sixteen wide column"><h3>{{extension}}@lifesizecloud.com</h3><br></div>
+
+                </div></div>
            <div class=" center aligned row">
 
               
-               <div class="three wide column callButton greenButton audioCall"><a href="/call/{{_id}}"><img src="/images/layouts.png" alt=""> Audio Call</a></div>
+               <div class="three wide column callButton greenButton audioCall"><a href="/call/{{_id}}"><!-- <img src="/images/layouts.png" alt=""> --> Audio Call</a></div>
                <div class="one wide column"></div>
-               <div class="three wide column callButton greenButton"><img src="/images/layouts.png" alt=""></div>
+               <div class="three wide column callButton greenButton">Video Call<!-- <img src="/images/layouts.png" alt=""> --></div>
                <div class="one wide column"></div>
-               <div class="three wide column callButton greenButton removeFav"><img src="/images/layouts.png" alt="">Remove from Favorites</div>
+               <div class="three wide column callButton  endCall removeFav"><!-- <img src="/images/layouts.png" alt=""> -->Remove from Favorites</div>
            </div>
        </div>
        {{/if}} 
@@ -164,18 +169,35 @@
            </div> -->
            <div class="fourteen wide column"></div>
            <div class="two wide column"><div class=" bigFont exitRecent"><i class=" white remove  icon"></i></div></div>
-           <div class="sixteen wide column"></div>
+           <div class="sixteen wide column"><div class="center aligned row whiteText">
+                    
+                    <div class="sixteen wide column"><h3>{{name}}</h3></div>
+                    <div class="sixteen wide column"><h3>{{extension}}@lifesizecloud.com</h3><br></div>
+
+                </div></div>
            <div class=" center aligned row">
 
               
-               <div class="three wide column callButton greenButton audioCall"><a href="/call/{{_id}}"><img src="/images/layouts.png" alt=""> Audio Call</a></div>
+               <div class="three wide column callButton greenButton audioCall"><a href="/call/{{_id}}"><!-- <img src="/images/layouts.png" alt=""> --> Audio Call</a></div>
                <div class="one wide column"></div>
-               <div class="three wide column callButton greenButton"><img src="/images/layouts.png" alt=""></div>
+               <div class="three wide column callButton greenButton"><!-- <img src="/images/layouts.png" alt=""> -->Video Call</div>
                <div class="one wide column"></div>
-               <div class="three wide column callButton greenButton addFav"><img src="/images/layouts.png" alt="">Add to Favorites</div>
+               <div class="three wide column callButton greenButton addFav"><!-- <img src="/images/layouts.png" alt=""> -->Add to Favorites</div>
            </div>
        </div>
        {{/if}}
+       {{#if callEndOverlay}}
+       this is the overlay
+            <div class="ui grid">
+                <div class="center aligned row">
+                    {{#each activeCall}}
+                        <div class="three wide column callButton greenButton multipleEnd" > End Call With {{this}}</div>
+                        <div class="one wide column"></div>
+                    {{/each}}
+                </div>
+                
+            </div>
+    {{/if}}
     </div>
 </div>
 </template>
