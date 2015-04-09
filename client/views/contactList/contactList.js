@@ -22,12 +22,22 @@ Template['contactList'].helpers({
 
 Template['contactList'].events({
 	'click .canCall' : function () {
+	  activeCalls.push(this.name);
 	  Session.set('outboundCall', true)
 	  Session.set('favorites', false)
 	  Session.set('favorite', false)
 	  Session.set('recentOverlay', false)
 	  Session.set('callEndOverlay', false)
+	  console.log(Session.get('activeCalls'))
+	  Router.go('/inCall');
+	},
+	'click .canMeeting' : function () {
 	  activeCalls.push(this.name);
+	  Session.set('outboundCall', true)
+	  Session.set('favorites', false)
+	  Session.set('favorite', false)
+	  Session.set('recentOverlay', false)
+	  Session.set('callEndOverlay', false)
 	  console.log(Session.get('activeCalls'))
 	  Router.go('/inCall');
 	},

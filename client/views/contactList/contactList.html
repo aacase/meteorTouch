@@ -216,7 +216,7 @@
 	           {{#if available}}
 	           			<tr>
 	           			<td><i class="green circle icon"></i><span class="directoryName">{{name}} </span><br>{{extension}}</td>
-	           			<td class='directoryPhone center aligned'><h1><i class="call icon canCall"></i></h1></td>
+	           			<td class='directoryPhone center aligned canMeeting'><a href="/meeting/{{_id}}"><h1><i class="call icon "></i></h1></a></td>
 	           			<td class='availableCell center aligned'><h1>★</h1></td>
 	           			</tr>
 	           			{{else}}
@@ -237,7 +237,7 @@
 	        		
 	        		{{#if available}}
 	        		<td><i class="green circle icon"></i><span class="directoryName">{{name}} </span><br>{{extension}}</td>
-	        		<td class='directoryPhone center aligned'><a href='/call/{{_id}}'><h1><i class="call icon canCall"></i></h1></a></td>
+	           			<td class='directoryPhone center aligned canMeeting'><a href="/meeting/{{_id}}"><h1><i class="call icon "></i></h1></a></td>
 	        		<td class='availableCell center aligned'><h1>★</h1></td>
 	        		{{else}}
 	        		<td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>

@@ -18,3 +18,13 @@ Router.map(function() {
         }
     });
 });
+
+Router.map(function() {
+    this.route('oneMeeting', { 
+        path: '/meeting/:_id',
+        template: 'inCall', // <-- to be explicit
+        data: function() {
+            return cloudMeetings.findOne(this.params._id);
+        }
+    });
+});

@@ -78,8 +78,8 @@ Template['homeScreen'].events({
 	  
 	   Session.set('icon', "<i class='dont icon pukeGreen'></i>");
 	   Session.set('dndEnabled', "<div class='sixteen wide column sideNav dndInvert ' id='dndActive'><div class='center aligned' id='dndText'><h1><i class=' dont icon'></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>");
-	   $('#dndButton').addClass('endCall');
-	   if($('#dndButton').hasClass('endCall')){
+	   // $('#dndButton').addClass('endCall');
+	   if($('#dndButton').hasClass('dndInvert')){
 	   	$("#dndButton").attr("id","dndActive");
 	   }
 	},
@@ -189,7 +189,7 @@ Template['homeScreen'].events({
 
 	'click #endCall' : function () {
 	  // $('#dndButton').removeClass('.even')
-	if (Session.get('callCounter')>1){
+	if (activeCalls.length > 1){
 
 	 	Session.set('callCounter', Session.get('callCounter')-1);
 	 	Session.set('outboundCall', false);
@@ -311,7 +311,7 @@ Template['homeScreen'].events({
 	
 	},
 	'click #volume' : function () {
-	  $('.modal').modal('show');
+	  $('.modal').modal('toggle');
 	 
 	 
 	},

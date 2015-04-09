@@ -174,7 +174,7 @@ Template['inCall'].events({
 Template.inCall.rendered=function(){
 	// activeCalls.push(this);
 
-	if(Session.get('callCounter')>=1){
+	if(Session.get('callCounter')>=1 || activeCalls.length >1){
 		Session.set('multipleCallers', true)
 		console.log("multiple callers?",Session.get('multipleCallers') )
 		Session.set('incomingUI', "<div class=' center aligned row'><div class='three wide column callButton greenButton'><div class='bigTime'><img src='/images/add.png' alt='></div><div class='><h2>Add</h2></div></div><div class='one wide column'></div><div class='three wide column callButton greenButton'><div class='bigTime'><img src='/images/add.png' alt='></div><div class='><h2>End & Answer</h2></div></div><div class='one wide column'></div><div class='three wide column callButton endCall' id='ignore'><div class='bigTime'><img src='/images/end.png' alt='></div><div class='><h2>Ignore</h2></div></div><div class='one wide column'></div><div class='three wide column callButton endCall' id='DND'><div class='bigTime'><img src='/images/dnd.png' alt='></div><div class='><h2>DND</h2></div></div></div></div>")
