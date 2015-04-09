@@ -160,11 +160,13 @@ Template['inCall'].events({
 		Session.set('callCounter', Session.get('callCounter')-1);
 		console.log(Session.get('callCounter'));
 		console.log(activeCalls)
+
 		
 		
 		if (activeCalls.length < 2){
 			Session.set('callEndOverlay', false)
 		}
+		Router.go('/homescreen')
 	}				
 
 });
@@ -184,7 +186,7 @@ Template.inCall.rendered=function(){
 		Session.set('callUI',true);
 		Session.set('inCallMenu', true)
 		// Session.set('callPresent', false)
-		setTimeout(function(){ Router.go('/homescreen') }, 3000);
+		// setTimeout(function(){ Router.go('/homescreen') }, 3000);
 	}
 	else{
 		Session.set('multipleCallers', false)
@@ -207,6 +209,11 @@ Template.inCall.rendered=function(){
 	// 	setTimeout(function(){ Router.go('/homescreen') }, 3000);
 	}
 
+	else if (Session.get('callEndOverlay')){
+
+
+	}
+
 	else if( Session.get('recentOverlay')){
 		Session.set('outboundCall', false);
 	}
@@ -223,7 +230,7 @@ Template.inCall.rendered=function(){
 		setTimeout(function(){ Router.go('/homescreen') }, 3000);
 	}
 
-	else if (!Session.get('incomingCall') && (!Session.get('optionsOverlay'))&& (!Session.get('favorites'))){
+	else if (!Session.get('incomingCall') && (!Session.get('optionsOverlay'))&& (!Session.get('favorites')) && (!Session.get('callEndOverlay'))){
 		Session.set('callCounter', Session.get('callCounter')+1);
 		console.log('call counter', Session.get('callCounter'))
 		Session.set('standardMenu', false);
@@ -243,15 +250,15 @@ Template.inCall.rendered=function(){
 		Session.set('outboundCall', false)
 	}
 	
-	else {
-		Session.set('standardMenu', false);
-		Session.set('backScreen',false);
-		Session.set('callUI',true);
-		Session.set('inCallMenu', true)
-		// Session.set('callPresent', false)
-		Session.set('outboundCall', false);
-		setTimeout(function(){ Router.go('/homescreen') }, 3000);
-	}
+	// else {
+	// 	Session.set('standardMenu', false);
+	// 	Session.set('backScreen',false);
+	// 	Session.set('callUI',true);
+	// 	Session.set('inCallMenu', true)
+	// 	// Session.set('callPresent', false)
+	// 	Session.set('outboundCall', false);
+	// 	setTimeout(function(){ Router.go('/homescreen') }, 3000);
+	// }
 	
 }
 
