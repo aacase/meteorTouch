@@ -1,16 +1,12 @@
 Object.defineProperty(Array.prototype, "filterValue", {
-    // Specify "enumerable" as "false" to prevent function enumeration
-    enumerable: false,
+    
+    enumerable: false, //this prevents iterative functions on this function
+    //which could mess up how it operates. 
 
-    /**
-    * Create new array where specified item is removed
-    * @this Array
-    * @param itemToRemove Item to remove from array
-    * @returns {Number} Count of removed items
-    */
-    value: function (itemToRemove) {
+    
+    value: function (itemToZap) {
         var filteredArray = this.filter(function(item){
-            return item !== itemToRemove;
+            return item !== itemToZap;
         });
 
         return filteredArray;

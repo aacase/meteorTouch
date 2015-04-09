@@ -45,7 +45,7 @@ Template.homeScreen.rendered = function(){
 		
 	}
 	if (Session.get('icon')=="<i class='dont icon pukeGreen'></i>"){
-		Session.set('dndEnabled', "<div class='sixteen wide column sideNav endCall ' id='dndActive'><div class='center aligned' id='dndText'><h1><i class=' dont icon'></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>");
+		Session.set('dndEnabled', "<div class='sixteen wide column sideNav dndInvert ' id='dndActive'><div class='center aligned' id='dndText'><h1><i class=' dont icon'></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>");
 	}
 	else{
 		
@@ -77,7 +77,7 @@ Template['homeScreen'].events({
 	  $('#dndButton').removeClass('.even');
 	  
 	   Session.set('icon', "<i class='dont icon pukeGreen'></i>");
-	   Session.set('dndEnabled', "<div class='sixteen wide column sideNav endCall ' id='dndActive'><div class='center aligned' id='dndText'><h1><i class=' dont icon'></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>");
+	   Session.set('dndEnabled', "<div class='sixteen wide column sideNav dndInvert ' id='dndActive'><div class='center aligned' id='dndText'><h1><i class=' dont icon'></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>");
 	   $('#dndButton').addClass('endCall');
 	   if($('#dndButton').hasClass('endCall')){
 	   	$("#dndButton").attr("id","dndActive");
