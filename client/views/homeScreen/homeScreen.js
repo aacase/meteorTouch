@@ -206,6 +206,7 @@ Template['homeScreen'].events({
 	 Session.set('callUI', false);
 	 Session.set('location', 'Home');
 	 Session.set('callCounter', Session.get('callCounter')-1);
+	 activeCalls=[]
 	}
 	// console.log('call counter', Session.get('callCounter'))
 	 
@@ -289,6 +290,7 @@ Template['homeScreen'].events({
 	},
 	'click #callPresent' : function () {
 	  // $('#dndButton').removeClass('.even')
+	 Session.set('callPresent', true);
 	 Session.set('standardMenu', false);
 	 Session.set('homeScreen', true);
 	 Session.set('myInfo', false);
@@ -299,12 +301,12 @@ Template['homeScreen'].events({
 	 // Session.set('keypad', true);
 	 Session.set('callUI', false);
 	 Session.set('location', 'Present');
-	 Session.set('callPresent', true);
+	 
 	 Session.set('recents', false);
 	 Session.set('incomingCall', false);
 	  Session.set('outboundCall', false);
-	   Session.set('optionsOverlay', false)
-	    Session.set('favorites', false)
+	   Session.set('optionsOverlay', false);
+	    Session.set('favorites', false);
 	 Router.go('/inCall')
 	
 	},

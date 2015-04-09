@@ -154,12 +154,14 @@ Template['inCall'].events({
 	 Session.set('location', 'Home');
 	},
 	'click .multipleEnd': function(){
-		console.log(this)
-		newActiveCalls=activeCalls.filterValue(this)
+		console.log(String(this))
+		newActiveCalls=activeCalls.filterValue(String(this))
 		activeCalls=newActiveCalls
+		Session.set('callCounter', Session.get('callCounter')-1);
+		console.log(Session.get('callCounter'));
 		console.log(activeCalls)
 		
-		console.log(activeCalls)
+		
 		if (activeCalls.length < 2){
 			Session.set('callEndOverlay', false)
 		}
@@ -181,7 +183,7 @@ Template.inCall.rendered=function(){
 		
 		Session.set('callUI',true);
 		Session.set('inCallMenu', true)
-		Session.set('callPresent', false)
+		// Session.set('callPresent', false)
 		setTimeout(function(){ Router.go('/homescreen') }, 3000);
 	}
 	else{
@@ -210,13 +212,14 @@ Template.inCall.rendered=function(){
 	}
 	else if (Session.get('outboundCall')){
 		Session.set('callCounter', Session.get('callCounter')+1);
-		console.log('call counter', Session.get('callCounter'))
+		
 		Session.set('standardMenu', false);
 		Session.set('backScreen',false);
 		Session.set('callEndOverlay', false);
 		Session.set('callUI',true);
 		Session.set('inCallMenu', true)
-		Session.set('callPresent', false)
+		console.log('call counter', Session.get('callCounter'))
+		// Session.set('callPresent', false)
 		setTimeout(function(){ Router.go('/homescreen') }, 3000);
 	}
 
@@ -227,7 +230,7 @@ Template.inCall.rendered=function(){
 		Session.set('backScreen',false);
 		Session.set('callUI',true);
 		Session.set('inCallMenu', true)
-		Session.set('callPresent', false)
+		// Session.set('callPresent', false)
 		setTimeout(function(){ Router.go('/homescreen') }, 3000);
 		
 	}
@@ -245,7 +248,7 @@ Template.inCall.rendered=function(){
 		Session.set('backScreen',false);
 		Session.set('callUI',true);
 		Session.set('inCallMenu', true)
-		Session.set('callPresent', false)
+		// Session.set('callPresent', false)
 		Session.set('outboundCall', false);
 		setTimeout(function(){ Router.go('/homescreen') }, 3000);
 	}
