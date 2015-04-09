@@ -1,3 +1,5 @@
+activeCalls = []
+
 $.Velocity.RegisterEffect('transition.pushRightIn', {
   defaultDuration: 500,
   calls: [

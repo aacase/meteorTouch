@@ -1,0 +1,40 @@
+user_aaron:
+  name: 'Aaron Case'
+  extension: 12345
+  available: true
+  favorite: false
+user_farzana:
+  name: 'Farzana Sedillo'
+  extension: 54321
+  available: false
+  favorite: false
+user_david:
+  name: 'David Morrison'
+  extension: 43456354
+  available: false
+  favorite: false
+user_rafi:
+  name: 'Rafi Anuar'
+  extension: 345543
+  available: true
+  favorite: false
+user_robert_maloney:
+  name: 'Robert Maloney'
+  extension: 2343455
+  available: false
+  favorite: false
+user_craig:
+  name: 'Craig Malloy'
+  extension: 1
+  available: true
+  favorite: false
+user_michael:
+  name: 'Michael Helebrecht'
+  extension: 1232433342
+  available: false
+  favorite: false
+user_michael2:
+  name: 'Michael Donaldson'
+  extension: 1234345345345345
+  available: true
+  favorite: false

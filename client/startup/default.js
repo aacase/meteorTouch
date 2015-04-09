@@ -247,4 +247,8 @@ Meteor.startup(function () {
 	      out: 'transition.fadeOut'
 	    }
 	});
+	Session.set('callCounter', 0);
+	var activeCalls = []
+	console.log(activeCalls, "total ActiveCalls")
+	console.log('call counter', Session.get('callCounter'))
 });
