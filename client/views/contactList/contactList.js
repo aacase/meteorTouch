@@ -85,16 +85,30 @@ Template['contactList'].events({
 	'click .favAdd' : function () {
 	  // Session.set('favorites', true)
 	  // Router.go('/inCall');
+	  if($('#'+this.extension+'').hasClass('blackStar')){
+	  	$('#'+this.extension+'').removeClass('blackStar');
+	  	$('#'+this.extension+'').addClass('notAvailable');
+
+	  }
+	  else{
+	  	$('#'+this.extension+'').addClass('blackStar');
+	  	$('#'+this.extension+'').removeClass('notAvailable');
+	  }
 	  if (this.favorite==true){
 	
 	 cloudUsers.update({_id:this._id},{$set:{name:this.name, extension:this.extension,available:this.available,favorite:false}});
-	 
+	 // $('#'+this.extension+'').removeClass('blackStar');
+	 // $('#'+this.extension+'').addClass('notAvailable');
 	}
 	else if (this.favorite==false){
+
 		cloudUsers.update({_id:this._id},{$set:{name:this.name, extension:this.extension,available:this.available,favorite:true}});
-		
+		// $('#'+this.extension+'').removeClass('notAvailable');
+		// $('#'+this.extension+'').addClass('blackStar');
 
 	}
+	
+
 
 
 	  

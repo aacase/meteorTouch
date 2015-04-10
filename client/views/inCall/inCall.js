@@ -66,6 +66,7 @@ Template['inCall'].events({
 	'click .endCall' : function () {
 	Session.set('incomingCall', false);
 	Session.set('callPresent', false);
+	Session.set('callUI', false);
 	Session.set('inCallMenu', false);
 	Session.set('standardMenu', true);
 	  Router.go('/homescreen');
@@ -99,34 +100,38 @@ Template['inCall'].events({
 	'click .addFav' : function(){
 		console.log(this);
 		cloudUsers.update({_id:this._id},{$set:{name:this.name, extension:this.extension,available:this.available,favorite:true}});
-		Router.go('/')
-		 Session.set('homeScreen', true);
+		Router.go('/homescreen')
+		Session.set('homeScreen', false);
+	 Session.set('standardMenu', false);
+	 Session.set('backScreen', true);
+
 	 Session.set('myInfo', false);
-	 Session.set('backScreen', false);
-	 Session.set('move', false);
-	 Session.set('record', false);
-	 Session.set('standardMenu', true);
-	 Session.set('location', 'Home');
 	 Session.set('call', false);
-	  Session.set('keypad', false);
-	  Session.set('system', false);
+	 // Session.set('callUI', true);
+	 Session.set('directory', false);
+	 Session.set('recents', false);
+	 Session.set('favorites', true);
+	 Session.set('recentOverlay', false)
+
+	 Session.set('location', 'Favorites');
 	},
 	'click .removeFav' : function(){
 		console.log(this);
 		cloudUsers.update({_id:this._id},{$set:{name:this.name, extension:this.extension,available:this.available,favorite:false}});
-		Router.go('/')
-		 Session.set('homeScreen', true);
+		Router.go('/homescreen')
+		Session.set('homeScreen', false);
+	 Session.set('standardMenu', false);
+	 Session.set('backScreen', true);
+
 	 Session.set('myInfo', false);
-	 Session.set('backScreen', false);
-	 Session.set('move', false);
-	 Session.set('record', false);
-	 Session.set('standardMenu', true);
-	 Session.set('location', 'Home');
 	 Session.set('call', false);
-	  Session.set('keypad', false);
-	  Session.set('system', false);
-	  Session.set('favorites', false);
-	  Session.set('outboundCall', false)
+	 // Session.set('callUI', true);
+	 Session.set('directory', false);
+	 Session.set('recents', false);
+	 Session.set('favorites', true);
+	 Session.set('recentOverlay', false)
+
+	 Session.set('location', 'Favorites');
 	},
 	'click #remove' : function(){
 		console.log(this);
@@ -166,6 +171,9 @@ Template['inCall'].events({
 		if (activeCalls.length < 2){
 			Session.set('callEndOverlay', false)
 		}
+		Router.go('/homescreen')
+	},
+	'click .presentButton': function(){
 		Router.go('/homescreen')
 	}				
 
