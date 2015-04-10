@@ -26,6 +26,8 @@ Template['inCall'].events({
 
 	'click .canCall' : function () {
 	  Session.set('outboundCall', true)
+	  	// Session.set('muteAudio', "<div class='iconDown center aligned'><i class='mute icon'></i></div><div class='iconDescription center aligned'><h1>Mute Audio</h1></div>")
+
 	  Session.set('favorites', false)
 	  Session.set('favorite', false)
 	  Session.set('recentOverlay', false)

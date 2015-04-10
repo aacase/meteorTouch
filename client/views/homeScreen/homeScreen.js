@@ -198,6 +198,7 @@ Template['homeScreen'].events({
 	 	Router.go('/inCall');
 	}
 	else{
+		Session.set('recordingIcon', '')
 		 Session.set('homeScreen', true);
 	 Session.set('standardMenu', true);
 	 Session.set('backScreen', false);
@@ -321,12 +322,37 @@ Template['homeScreen'].events({
 	 
 	 
 	},
-	'click #mute' : function(){
+	'click #muteAudio' : function(){
 		if (Session.get('recordingIcon')=='<i class="mute icon pukeGreen">'){
 		Session.set('recordingIcon', '')
 		}else{
-			Session.set('recordingIcon', '<i class="mute icon pukeGreen">')
+		Session.set('recordingIcon', '<i class="mute icon pukeGreen">')
 		}
+		if ($('#muteAudio').hasClass('greyOdd')){
+		$('#muteAudio').removeClass('greyOdd');
+		$('#muteAudio').addClass('muteInvert');}
+		else{
+			$('#muteAudio').removeClass('muteInvert');
+			$('#muteAudio').addClass('greyOdd');
+		}
+
+
+	},
+	'click #muteVideo' : function(){
+		if (Session.get('recordingIcon')=='<i class="mute icon pukeGreen">'){
+		Session.set('recordingIcon', '')
+		}else{
+		Session.set('recordingIcon', '<i class="mute icon pukeGreen">')
+		}
+		if ($('#muteVideo').hasClass('greyEven')){
+		$('#muteVideo').removeClass('greyEven');
+		$('#muteVideo').addClass('muteInvert');}
+		else{
+			$('#muteVideo').removeClass('muteInvert');
+			$('#muteVideo').addClass('greyEven');
+		}
+
+
 	},
 	'click .moreButton' : function () {
 	  Session.set('inCallMenu', false);

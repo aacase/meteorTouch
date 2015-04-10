@@ -33,10 +33,14 @@
 				{{#if inCallMenu}}
 				<div class="row">
 					
-					<div class="sixteen wide column sideNav even moreButton" ><div class="center aligned"><h1><i class=" horizontal ellipsis icon"></i></h1></div><div class='center aligned'>More</div></div>
+					<!-- <div class="sixteen wide column sideNav even moreButton" ><div class="center aligned"><h1><i class=" horizontal ellipsis icon"></i></h1></div><div class='center aligned'>More</div></div> -->
+					<!-- <div class="sixteen wide column sideNav endCall" id="endCall"><div class="center aligned"><img src="/images/end.png" alt=""></div><div class='center aligned'>End</div></div> -->
+					<!-- <div class="sixteen wide column sideNav odd" id='mute'><div class="center aligned"><h1><i class=" mute icon"></i></h1></div><div class='center aligned'>Mute Audio</div></div>
+					<div class="sixteen wide column sideNav even " id="dndButton"><div class="center aligned" id="dndText"><h1><img src="/images/muteVideo.png" alt=""></h1></div><div class='center aligned' id='dndText2'>Mute Video</div></div> -->
 					<div class="sixteen wide column sideNav endCall" id="endCall"><div class="center aligned"><img src="/images/end.png" alt=""></div><div class='center aligned'>End</div></div>
-					<div class="sixteen wide column sideNav odd" id='mute'><div class="center aligned"><h1><i class=" mute icon"></i></h1></div><div class='center aligned'>Mute Audio</div></div>
-					<div class="sixteen wide column sideNav even " id="dndButton"><div class="center aligned" id="dndText"><h1><img src="/images/muteVideo.png" alt=""></h1></div><div class='center aligned' id='dndText2'>Mute Video</div></div>
+					<div class="sixteen wide column sideNav even" id="myInfo"><div class="center aligned"><h1><i class=" user icon"></i></h1></div><div class='center aligned'>My Info</div></div>
+					<div class="sixteen wide column sideNav odd" id='volume'><div class="center aligned"><h1><i class=" volume up icon"></i></h1></div><div class='center aligned'>Volume</div></div>
+					<div>{{{dndEnabled}}}</div>
 				</div>
 				{{/if}}
 				{{#if inCallMenu2}}
@@ -102,6 +106,8 @@
 				<div class="features ui grid noMargin" style="overflow-y:auto;white-space:nowrap;">
 					<div class="four wide column greyOdd" id="add"><div class="iconDown center aligned"><i class="add user icon"></i></div><div class="iconDescription center aligned"><h1>Add</h1></div></div>
 					<div class="five wide column greyEven" id="callPresent"><div class="iconDown center aligned"><i class="laptop icon"></i></div><div class="iconDescription center aligned" id='callPresent'><h1>Present</h1></div></div>
+					<div class="five wide column greyOdd" id='muteAudio'><div class="iconDown center aligned"><i class="mute icon"></i></div><div class="iconDescription center aligned"><h1>Mute Audio</h1></div></div>
+					<div class="five wide column greyEven" id="muteVideo"><div class="iconDown center aligned"><i class=" mute icon"></i></div><div class="iconDescription center aligned"><h1>Mute Video</h1></div></div>
 					<div class="five wide column greyOdd" id='move'><div class="iconDown center aligned"><i class="move icon"></i></div><div class="iconDescription center aligned"><h1>Move</h1></div></div>
 					<div class="five wide column greyEven" id="record"><div class="iconDown center aligned"><i class=" toggle right icon"></i></div><div class="iconDescription center aligned"><h1>Record</h1></div></div>
 			
