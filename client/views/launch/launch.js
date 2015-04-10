@@ -19,6 +19,39 @@ Template['launch'].events({
 	'click .launchDown' : function () {
 	  Router.go('/homescreen');
 	},
+	'click .moveUI': function(){
+		 Session.set('standardMenu', false);
+	 Session.set('homeScreen', false);
+	 Session.set('myInfo', false);
+	 Session.set('move', true);
+	Session.set('call', false);
+	 Session.set('directory', false);
+	 Session.set('backScreen', true);
+	 Session.set('location', 'Local');
+	 Router.go('/homescreen')
+	},
+
+	'click .MBU' : function(){
+	Session.set('outboundCall', true)
+	  Session.set('favorites', false)
+	  Session.set('favorite', false)
+	  Session.set('recentOverlay', false)
+	 Router.go('/meeting/bLzwp9RkDZWbeWepa');
+	},
+	'click .london' : function(){
+	Session.set('outboundCall', true)
+	  Session.set('favorites', false)
+	  Session.set('favorite', false)
+	  Session.set('recentOverlay', false)
+	 Router.go('/meeting/E3i9pRtwfhn2sTxiE');
+	},
+	'click .tokyo' : function(){
+	Session.set('outboundCall', true)
+	  Session.set('favorites', false)
+	  Session.set('favorite', false)
+	  Session.set('recentOverlay', false)
+	 Router.go('/meeting/cBZ8dmxMdmshZuvu4');
+	}
 
 	
 });

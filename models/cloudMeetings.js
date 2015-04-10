@@ -18,6 +18,7 @@ cloudMeetings.attachSchema(
 // Collection2 already does schema checking
 // Add custom permission rules if needed
 if (Meteor.isServer) {
+  cloudMeetings.initEasySearch('name');
   cloudMeetings.allow({
     insert : function () {
       return true;
