@@ -347,6 +347,7 @@ Template['homeScreen'].events({
 	},
 	'click #easterEgg' : function () {
 		Session.set('callCounter', Session.get('callCounter')+1);
+		Session.set('outboundCall',false);
 		Session.set('incomingCall',true);
 		setTimeout(function(){ Router.go('/inCall') }, 3000);
 	},

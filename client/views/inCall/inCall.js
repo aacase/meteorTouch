@@ -72,6 +72,30 @@ Template['inCall'].events({
 	  Router.go('/homescreen');
 	},
 
+	'click .incomingEndCall' : function () {
+	Session.set('incomingCall', false);
+	if (activeCalls.length > 0){
+		// Session.set('callCounter', Session.get('callCounter')+1);
+		
+		Session.set('standardMenu', false);
+		Session.set('backScreen',false);
+		Session.set('callEndOverlay', false);
+		Session.set('callUI',true);
+		Session.set('inCallMenu', true)
+		// console.log('call counter', Session.get('callCounter'))
+		Router.go('/homescreen')
+	
+
+	}
+	else{
+		Session.set('incomingCall', false);
+		Session.set('callPresent', false);
+		Session.set('callUI', false);
+		Session.set('inCallMenu', false);
+		Session.set('standardMenu', true);
+		Router.go('/homescreen')}
+	},
+
 	'click .audioCall' : function () {
 	Session.set('recentOverlay', false);
 	Session.set('outboundCall', true);
@@ -90,13 +114,13 @@ Template['inCall'].events({
 	Session.set('icon', '<i class="dont icon pukeGreen"></i>');
 	
 	},
-	'click #ignore' : function () {
-	Session.set('standardMenu', true);
-	Session.set('backScreen',false);
-	Session.set('callUI',false);
-	Session.set('inCallMenu', false);
+	// 'click #ignore' : function () {
+	// Session.set('standardMenu', true);
+	// Session.set('backScreen',false);
+	// Session.set('callUI',false);
+	// Session.set('inCallMenu', false);
 	
-	},
+	// },
 	'click .addFav' : function(){
 		console.log(this);
 		cloudUsers.update({_id:this._id},{$set:{name:this.name, extension:this.extension,available:this.available,favorite:true}});
@@ -185,7 +209,7 @@ Template.inCall.rendered=function(){
 	if(Session.get('callCounter')>=1 || activeCalls.length >1){
 		Session.set('multipleCallers', true)
 		console.log("multiple callers?",Session.get('multipleCallers') )
-		Session.set('incomingUI', "<div class=' center aligned row'><div class='three wide column callButton greenButton'><div class='bigTime'><img src='/images/add.png' alt='></div><div class='><h2>Add</h2></div></div><div class='one wide column'></div><div class='three wide column callButton greenButton'><div class='bigTime'><img src='/images/add.png' alt='></div><div class='><h2>End & Answer</h2></div></div><div class='one wide column'></div><div class='three wide column callButton endCall' id='ignore'><div class='bigTime'><img src='/images/end.png' alt='></div><div class='><h2>Ignore</h2></div></div><div class='one wide column'></div><div class='three wide column callButton endCall' id='DND'><div class='bigTime'><img src='/images/dnd.png' alt='></div><div class='><h2>DND</h2></div></div></div></div>")
+		Session.set('incomingUI', "<div class=' center aligned row'><div class='three wide column callButton greenButton'><div class='bigTime'><img src='/images/add.png' alt='></div><div class='><h2>Add</h2></div></div><div class='one wide column'></div><div class='three wide column callButton greenButton'><div class='bigTime'><img src='/images/add.png' alt='></div><div class='><h2>End & Answer</h2></div></div><div class='one wide column'></div><div class='three wide column callButton incomingEndCall' id='ignore'><div class='bigTime'><img src='/images/end.png' alt='></div><div class='><h2>Ignore</h2></div></div><div class='one wide column'></div><div class='three wide column callButton incomingEndCall' id='DND'><div class='bigTime'><img src='/images/dnd.png' alt='></div><div class='><h2>DND</h2></div></div></div></div>")
 		// Session.set('callCounter', Session.get('callCounter')+1);
 		// console.log('call counter', Session.get('callCounter'))
 		Session.set('standardMenu', false);
@@ -199,7 +223,7 @@ Template.inCall.rendered=function(){
 	else{
 		Session.set('multipleCallers', false)
 		console.log("multiple callers?",Session.get('multipleCallers') )
-		Session.set('incomingUI', "<div class=' center aligned row'><div class='three wide column callButton greenButton audioCall'><a href='/call/{{_id}}'><img src='/images/layouts.png' alt=''> Audio Call</a></div><div class='one wide column'></div><div class='three wide column callButton greenButton'><img src='/images/layouts.png' alt=''></div><div class='one wide column'></div><div class='three wide column callButton endCall'><h1><i class='trash icon'></i></h1></div></div>")
+		Session.set('incomingUI', "<div class=' center aligned row'><div class='three wide column callButton greenButton audioCall'><a href='/call/{{_id}}'><img src='/images/layouts.png' alt=''> Audio Call</a></div><div class='one wide column'></div><div class='three wide column callButton greenButton'><img src='/images/layouts.png' alt=''></div><div class='one wide column'></div><div class='three wide column callButton incomingEndCall'><h1><i class='trash icon'></i></h1></div></div>")
 
 
 	}
