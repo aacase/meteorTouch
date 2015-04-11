@@ -1,30 +1,6 @@
 <template name="contactList">
 {{#if recents}}
 <div class="sixteen wide column" style="overflow-y:auto;  height: 470px;">
-	<!-- <div class="row">
-		<div class="thirteen wide column">
-			<div class="ui left icon  input">
-				<input type="text" placeholder="Search Recents">
-				<i class="search icon"></i>
-			</div>
-			
-		</div>
-		<div class="three wide column "><h1><i class="edit icon"></i></h1></div>
-	</div> -->
-	<!-- <form class="ui form">
-	  
-	  <div class="two fields">
-	  	<div class="field">
-	  		<div class="ui left icon  input">
-	  			<input type="text" placeholder="Search Recents">
-	  			<i class="search icon"></i>
-	  		</div>
-	  	</div>
-	  	<div class="field">
-	  		<h1><i class="edit icon"></i></h1>
-	  	</div>
-	  </div>
-	</form> -->
  {{> esInput index="cloudUsers" placeholder="Search..." }}
 <table class="ui striped celled table">
 	<tbody>
@@ -214,10 +190,6 @@
 	        		<tr><td><a href="/call/{{_id}}"><i class="green circle icon"></i><span class="favName">{{name}} </span><br>{{extension}}</a></td>
 	        		<td class='directoryPhone center aligned'><a href='/call/{{_id}}'><h1><i class="call icon canCall"></i></h1></a></td>
 	        		<td class='availableCell center aligned favAdd' id=""><h1 class="black">★</h1></td></tr>
-	        		<!-- {{else}}
-	        		<td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>
-	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
-	        		<td class='availableCell center aligned'><h1 class='notAvailable' id="{{extension}}">★</h1></td> -->
 	        		{{/if}}
 	        		{{#if not available favorite }}
 	        		<tr><td><a href="/call/{{_id}}"><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</a></td>

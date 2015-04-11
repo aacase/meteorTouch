@@ -45,46 +45,28 @@ Template['contactList'].events({
 	  Session.set('optionsOverlay', true)
 	  Session.set('favorites', false)
 	  Session.set('outboundCall', false)
-	  Router.go('/inCall');
-
-	  
+	  Router.go('/inCall'); 
 	},
 	'click .recentName' : function () {
 	  Session.set('recentOverlay', true)
 	  Session.set('outboundCall', false)
 	  Session.set('favorites', false)
-	  Router.go('/inCall');
-	  
-
-	  
+	  Router.go('/inCall'); 
 	},
 	'click .recentName2' : function () {
-	  Session.set('recentOverlay', true)
-	 
-	  
-
-	  
+	  Session.set('recentOverlay', true) 
 	},
 	'click .directoryName' : function () {
-	  // Session.set('optionsOverlay', true)
 	  Session.set('directoryOverlay', true);
-
 	  Session.set('outboundCall', false)
 	  Router.go('/inCall');
-
-	  
 	},
 	'click .favName' : function () {
 	  Session.set('recentOverlay', false)
 	  Session.set('favorites', true)
-
-	  // Router.go('/inCall');
-
-	  
 	},
 	'click .favAdd' : function () {
-	  // Session.set('favorites', true)
-	  // Router.go('/inCall');
+	 
 	  if($('#'+this.extension+'').hasClass('blackStar')){
 	  	$('#'+this.extension+'').removeClass('blackStar');
 	  	$('#'+this.extension+'').addClass('notAvailable');
@@ -97,29 +79,16 @@ Template['contactList'].events({
 	  if (this.favorite==true){
 	
 	 cloudUsers.update({_id:this._id},{$set:{name:this.name, extension:this.extension,available:this.available,favorite:false}});
-	 // $('#'+this.extension+'').removeClass('blackStar');
-	 // $('#'+this.extension+'').addClass('notAvailable');
 	}
 	else if (this.favorite==false){
-
 		cloudUsers.update({_id:this._id},{$set:{name:this.name, extension:this.extension,available:this.available,favorite:true}});
-		// $('#'+this.extension+'').removeClass('notAvailable');
-		// $('#'+this.extension+'').addClass('blackStar');
-
 	}
-	
-
-
-
-	  
 	},
 });
 
 
 Template.contactList.rendered = function(){
 	var favoritesList =  [{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false}];
-	// var recentsList = [{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false},{name:"Aaron", extension:"12345", available:true}, {name:"Farzana", extension:"54321", available:false}];
-	var recentsList=[]
 	var items = cloudUsers.find();
 	items.forEach(function(item){
 		recentsList.push(item);

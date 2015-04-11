@@ -78,35 +78,28 @@ Template['homeScreen'].events({
 	  
 	   Session.set('icon', "<i class='dont icon pukeGreen'></i>");
 	   Session.set('dndEnabled', "<div class='sixteen wide column sideNav dndInvert ' id='dndActive'><div class='center aligned' id='dndText'><h1><i class=' dont icon'></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>");
-	   // $('#dndButton').addClass('endCall');
 	   if($('#dndButton').hasClass('dndInvert')){
 	   	$("#dndButton").attr("id","dndActive");
 	   }
 	},
 
 	'click #dndActive' : function () {
-	  // $('#dndEnabled').removeClass('endCall');
-	  // $('#dndEnabled').addClass('even');
 	  Session.set('icon', "");
 	  Session.set('dndEnabled', "<div class='sixteen wide column sideNav even ' id='dndButton'><div class='center aligned' id='dndText'><h1><i class=' dont icon'></i></h1></div><div class='center aligned' id='dndText2'>DND</div></div>");
 	  $("#dndEnabled").attr("id","dndButton");
 	},
 	'click #infoPanel' : function () {
-	  // $('#dndButton').removeClass('.even')
 	 Session.set('infoPanel', true);
 	 $("#infoPanel").attr("id","infoPanelActive");
 	 console.log(Session.get('infoPanel'), 'infoPanel')
 	},
 	'click #infoPanelActive' : function () {
-	  // $('#dndButton').removeClass('.even')
 	 Session.set('infoPanel', false);
 	 $("#infoPanelActive").attr("id","infoPanel");
 	 console.log(Session.get('infoPanel'), 'infoPanel')
 	},
 	'click #directory' : function () {
-	  // $('#dndButton').removeClass('.even')
-	  Session.set('standardMenu', false);
-
+	 Session.set('standardMenu', false);
 	 Session.set('directory', true);
 	 Session.set('backScreen', true);
 	 Session.set('call', false);
@@ -114,7 +107,7 @@ Template['homeScreen'].events({
 	
 	},
 	'click #record' : function () {
-	  // $('#dndButton').removeClass('.even')
+	 
 	 Session.set('standardMenu', false);
 	 Session.set('homeScreen', false);
 	 Session.set('myInfo', false);
@@ -126,7 +119,6 @@ Template['homeScreen'].events({
 	
 	},
 	'click #system' : function () {
-	  // $('#dndButton').removeClass('.even')
 	 Session.set('standardMenu', false);
 	 Session.set('homeScreen', false);
 	 Session.set('myInfo', false);
@@ -138,20 +130,18 @@ Template['homeScreen'].events({
 	
 	},
 	'click #move' : function () {
-	  // $('#dndButton').removeClass('.even')
 	 Session.set('standardMenu', false);
 	 Session.set('homeScreen', false);
 	 Session.set('myInfo', false);
 	 Session.set('move', true);
-	Session.set('call', false);
+	 Session.set('call', false);
 	 Session.set('directory', false);
 	 Session.set('backScreen', true);
 	 Session.set('location', 'Move');
 	
 	},
 	'click #backButton' : function () {
-	  // $('#dndButton').removeClass('.even')
-
+	  
 	  //adding logic here to determine what the back button does:
 
 	  if (Session.get('directory')||Session.get('recents')|| Session.get('favorites')){
@@ -188,7 +178,6 @@ Template['homeScreen'].events({
 	// },
 
 	'click #endCall' : function () {
-	  // $('#dndButton').removeClass('.even')
 	if (activeCalls.length > 1){
 
 	 	Session.set('callCounter', Session.get('callCounter')-1);
@@ -198,7 +187,7 @@ Template['homeScreen'].events({
 	 	Router.go('/inCall');
 	}
 	else{
-		 Session.set('homeScreen', true);
+	 Session.set('homeScreen', true);
 	 Session.set('standardMenu', true);
 	 Session.set('backScreen', false);
 	 Session.set('myInfo', false);
@@ -214,29 +203,23 @@ Template['homeScreen'].events({
 
 
 	'click #call' : function () {
-	  // $('#dndButton').removeClass('.even')
 	 Session.set('homeScreen', false);
 	 Session.set('standardMenu', false);
 	 Session.set('backScreen', true);
 	 Session.set('move', false);
-
 	 Session.set('myInfo', false);
 	 Session.set('call', true);
-	 // Session.set('callUI', true);
 	 Session.set('directory', false);
 	 Session.set('location', 'Call');
 	 
 	 
 	},
 	'click #recents' : function () {
-	  // $('#dndButton').removeClass('.even')
 	 Session.set('homeScreen', false);
 	 Session.set('standardMenu', false);
 	 Session.set('backScreen', true);
-
 	 Session.set('myInfo', false);
 	 Session.set('call', false);
-	 // Session.set('callUI', true);
 	 Session.set('directory', false);
 	 Session.set('recents', true);
 	 Session.set('location', 'Recents');
@@ -244,40 +227,29 @@ Template['homeScreen'].events({
 	},
 
 	'click #favorites' : function () {
-	  // $('#dndButton').removeClass('.even')
 	 Session.set('homeScreen', false);
 	 Session.set('standardMenu', false);
 	 Session.set('backScreen', true);
-
 	 Session.set('myInfo', false);
 	 Session.set('call', false);
-	 // Session.set('callUI', true);
 	 Session.set('directory', false);
 	 Session.set('recents', false);
 	 Session.set('favorites', true);
-
 	 Session.set('location', 'Favorites');
-	 
 	},
 	'click #meetings' : function () {
-	  // $('#dndButton').removeClass('.even')
 	 Session.set('homeScreen', false);
 	 Session.set('standardMenu', false);
 	 Session.set('backScreen', true);
-
 	 Session.set('myInfo', false);
 	 Session.set('call', false);
-	 // Session.set('callUI', true);
 	 Session.set('directory', false);
 	 Session.set('recents', false);
 	 Session.set('favorites', false);
 	 Session.set('meetings', true);
-
 	 Session.set('location', 'Meetings');
-	 
 	},
 	'click #keypad' : function () {
-	  // $('#dndButton').removeClass('.even')
 	 Session.set('standardMenu', false);
 	 Session.set('homeScreen', false);
 	 Session.set('myInfo', false);
@@ -286,10 +258,8 @@ Template['homeScreen'].events({
 	 Session.set('backScreen', true);
 	 Session.set('keypad', true);
 	 Session.set('location', 'Keypad');
-	
 	},
 	'click #callPresent' : function () {
-	  // $('#dndButton').removeClass('.even')
 	 Session.set('callPresent', true);
 	 Session.set('standardMenu', false);
 	 Session.set('homeScreen', true);
@@ -297,53 +267,40 @@ Template['homeScreen'].events({
 	 Session.set('call', false);
 	 Session.set('directory', false);
 	 Session.set('backScreen', true);
-
-	 // Session.set('keypad', true);
 	 Session.set('callUI', false);
 	 Session.set('location', 'Present');
-	 
 	 Session.set('recents', false);
 	 Session.set('incomingCall', false);
-	  Session.set('outboundCall', false);
-	   Session.set('optionsOverlay', false);
-	    Session.set('favorites', false);
+	 Session.set('outboundCall', false);
+	 Session.set('optionsOverlay', false);
+	 Session.set('favorites', false);
 	 Router.go('/inCall')
 	
 	},
 	'click #volume' : function () {
 	  $('.modal').modal('toggle');
-	 
-	 
 	},
 	'click #add' : function () {
 	 Session.set('call', true);
 	 Session.set('callUI',false);
-	 
-	 
 	},
 	'click #mute' : function(){
-		if (Session.get('recordingIcon')=='<i class="mute icon pukeGreen">'){
-		Session.set('recordingIcon', '')
-		}else{
-			Session.set('recordingIcon', '<i class="mute icon pukeGreen">')
-		}
+	 if (Session.get('recordingIcon')=='<i class="mute icon pukeGreen">'){
+	 Session.set('recordingIcon', '')
+	 }else{
+	  Session.set('recordingIcon', '<i class="mute icon pukeGreen">')
+	 }
 	},
 	'click .moreButton' : function () {
 	  Session.set('inCallMenu', false);
 	  Session.set('inCallMenu2', true);
-	 
-	 
 	},
 	'click .closeIcon' : function () {
 	  Session.set('inCallMenu', true);
 	  Session.set('inCallMenu2', false);
-	 
-	 
 	},
 	'click #sleep' : function () {
 	  $('.dimmer').dimmer('toggle');
-	 
-	 
 	},
 	'click #easterEgg' : function () {
 		Session.set('callCounter', Session.get('callCounter')+1);
