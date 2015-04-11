@@ -30,3 +30,13 @@ user_mars:
   name: 'International Space Station'
   extension: 1234345345345345
   available: true
+
+  user_tokyo:
+  name: 'London Meeting'
+  extension: 'London'
+  available: true
+
+user_london2:
+  name: 'Tokyo Meeting'
+  extension: 'Tokyo'
+  available: true
