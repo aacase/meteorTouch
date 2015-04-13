@@ -178,14 +178,15 @@ Template['homeScreen'].events({
 	  }
 	 
 	},
-	// 'click #myInfo' : function () {
-	//   // $('#dndButton').removeClass('.even')
-	//  Session.set('homeScreen', false);
-	//  Session.set('backScreen', true);
-	//  Session.set('myInfo', true);
-	//  Session.set('location', 'My Info');
+	'click #myInfo' : function () {
+	  // $('#dndButton').removeClass('.even')
+	 Session.set('homeScreen', false);
+	 Session.set('backScreen', true);
+	 Session.set('standardMenu', false);
+	 Session.set('myInfo', true);
+	 Session.set('location', 'My Info');
 	 
-	// },
+	},
 
 	'click #endCall' : function () {
 	  // $('#dndButton').removeClass('.even')

@@ -6,6 +6,7 @@ Template['inCall'].helpers({
 	optionsOverlay:function(){return Session.get('optionsOverlay')},
 	favorites:function(){return Session.get('favorites')},
 	callPresent:function(){return Session.get('callPresent')},
+	infoOverlay: function(){return Session.get('infoOverlay')},
 	directoryOverlay:function(){return Session.get('directoryOverlay')},
 	recentOverlay:function(){return Session.get('recentOverlay')},
 	incomingUI:function(){return Session.get('incomingUI')},
@@ -56,6 +57,7 @@ Template['inCall'].events({
 	Session.set('incomingCall', false);
 	Session.set('callPresent', false);
 	Session.set('backScreen', true);
+	Session.set('infoOverlay', false);
 	Session.set('recents', true);
 	Session.set('recentOverlay', false)
 	Session.set('inCallMenu', false);

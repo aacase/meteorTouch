@@ -38,3 +38,143 @@ user_michael2:
   extension: 1234345345345345
   available: true
   favorite: false
+user_michael2:
+  name: 'Michael Donaldson'
+  extension: 1234345345345345
+  available: true
+  favorite: false
+user_brandon:
+  name: 'Brandon Jones'
+  extension: 54745345
+  available: true
+  favorite: false
+user_Jon:
+  name: 'Jon Vorpe'
+  extension: 495837
+  available: true
+  favorite: false
+user_JonathanM:
+  name: 'Jonathan McAllister'
+  extension: 947593
+  available: true
+  favorite: false
+user_robert_Jones:
+  name: 'Robert Jones'
+  extension: 34573
+  available: true
+  favorite: false
+user_jHernandez:
+  name: 'John Hernandez'
+  extension: 4567745
+  available: true
+  favorite: false
+user_John_Eapen:
+  name: 'John Eapen'
+  extension: 4563478
+  available: true
+  favorite: false
+user_knox:
+  name: 'John Knox'
+  extension: 46346
+  available: true
+  favorite: false
+user_skeehan:
+  name: 'John Skeehan'
+  extension: 234532
+  available: true
+  favorite: false
+user_selina:
+  name: 'Selina Johnson'
+  extension: 4673457
+  available: true
+  favorite: false
+user_pate:
+  name: 'Robert Pate'
+  extension: 4346342
+  available: true
+  favorite: false
+user_reed:
+  name: 'Robert Reed'
+  extension: 67889
+  available: true
+  favorite: false
+user_torres:
+  name: 'Robert Torres'
+  extension: 32475
+  available: true
+  favorite: false
+user_wallis:
+  name: 'Rober Wallis'
+  extension: 43333
+  available: true
+  favorite: false
+user_winefield:
+  name: 'Robert Winefield'
+  extension: 345345346734
+  available: true
+  favorite: false
+user_luft:
+  name: 'Aaron Luft'
+  extension: 57999
+  available: true
+  favorite: false
+user_aaron_s:
+  name: 'Aaron Slusky'
+  extension: 33355
+  available: true
+  favorite: false
+user_aOffice:
+  name: 'Aarons Office'
+  extension: 2223
+  available: true
+  favorite: false
+user_capro:
+  name: 'Brian Caporicci'
+  extension: 3229
+  available: true
+  favorite: false
+user_franklin:
+  name: 'Brian Franklin'
+  extension: 347564
+  available: true
+  favorite: false
+user_buster:
+  name: 'Brian Posey'
+  extension: 447734
+  available: true
+  favorite: false
+user_thisJelly:
+  name: 'Brian Sears'
+  extension: 37899
+  available: true
+  favorite: false
+user_weaver:
+  name: 'Brian Weaver'
+  extension: 2332
+  available: true
+  favorite: false
+user_zeiss:
+  name: 'Brian Zieser'
+  extension: 557789
+  available: true
+  favorite: false
+user_coff:
+  name: 'David Coffman'
+  extension: 433332
+  available: true
+  favorite: false
+user_foote:
+  name: 'David Foote'
+  extension: 443993
+  available: true
+  favorite: false
+user_hong:
+  name: 'David Hong'
+  extension: 8675309
+  available: true
+  favorite: false
+user_michael2:
+  name: 'David Schaffer'
+  extension: 53578
+  available: true
+  favorite: false

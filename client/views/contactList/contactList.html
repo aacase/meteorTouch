@@ -248,6 +248,7 @@
 	   <tbody>
 	      
 	       {{#esEach index="cloudMeetings"}}
+
 	           {{#if available}}
 	           			<tr>
 	           			<td><i class="green circle icon"></i><span class="directoryName">{{name}} </span><br>{{extension}}</td>
@@ -268,18 +269,20 @@
 	        {{/ifEsHasNoResults}}
 	        {{#ifEsInputIsEmpty index="cloudMeetings"}}
 	        	{{# each meetingsList}}
-	        	<tr>
+	        	
 	        		
 	        		{{#if available}}
+	        		<tr>
 	        		<td><i class="green circle icon"></i><span class="directoryName">{{name}} </span><br>{{extension}}</td>
 	        		<td class='directoryPhone center aligned'><a href='/meeting/{{_id}}'><h1><i class="call icon canCall"></i></h1></a></td>
-	        		<td class='availableCell center aligned'><h1>★</h1></td>
+	        		<td class='availableCell center aligned'><h1>★</h1></td></tr>
 	        		{{else}}
-	        		<td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>
+	        		
+	        		<tr><td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>
 	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
-	        		<td class='availableCell center aligned'><h1 class='notAvailable' id="{{extension}}">★</h1></td>
+	        		<td class='availableCell center aligned'><h1 class='notAvailable' id="{{extension}}">★</h1></td></tr>
 	        		{{/if}}
-	        	</tr>
+	        	
 	        	{{/each}}
 	        {{/ifEsInputIsEmpty}}	
 

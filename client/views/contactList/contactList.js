@@ -133,5 +133,6 @@ Template.contactList.rendered = function(){
 	meetings.forEach(function(meeting){
 		meetingsList.push(meeting)
 	});
+	meetingsList=meetingsList.sort();
 	Session.set('meetingsList', meetingsList);
 }
