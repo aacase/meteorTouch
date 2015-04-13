@@ -28,6 +28,7 @@ Template['launch'].events({
 	 Session.set('directory', false);
 	 Session.set('backScreen', true);
 	 Session.set('location', 'Local');
+	 Session.set('launchMove', true);
 	 Router.go('/homescreen')
 	},
 

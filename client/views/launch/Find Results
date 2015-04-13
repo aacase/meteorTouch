@@ -1,0 +1,135 @@
+Searching 2283 files for "notAvailable"
+
+Unable to open /Users/acase/code/meteor/Mustang/.meteor/local/build/programs/server/packages/aldeed_template-extension.js
+Unable to open /Users/acase/code/meteor/Mustang/.meteor/local/build/programs/server/packages/aldeed_template-extension.js.map
+Unable to open /Users/acase/code/meteor/Mustang/.meteor/local/build/programs/server/packages/chriswessels_hammer.js
+Unable to open /Users/acase/code/meteor/Mustang/.meteor/local/build/programs/server/packages/chriswessels_hammer.js.map
+Unable to open /Users/acase/code/meteor/Mustang/.meteor/local/build/programs/web.browser/fb31161eeca482b99ddc0c6fcfd47211d4feae61.css
+Unable to open /Users/acase/code/meteor/Mustang/.meteor/local/build/programs/web.browser/fb31161eeca482b99ddc0c6fcfd47211d4feae61.css.map
+Unable to open /Users/acase/code/meteor/Mustang/.meteor/local/build/programs/web.browser/packages/chriswessels_hammer.js
+Unable to open /Users/acase/code/meteor/Mustang/.meteor/local/build/programs/web.browser/packages/chriswessels_hammer.js.map
+Unable to open /Users/acase/code/meteor/Mustang/.meteor/local/build/programs/web.browser/packages/semantic_ui-css/themes/default/assets/fonts/icons.otf
+/Users/acase/code/meteor/Mustang/client/stylesheets/main.less:
+   70  }
+   71  
+   72: .notAvailable{
+   73  	color: #c8c8c8;
+   74  }
+
+/Users/acase/code/meteor/Mustang/client/views/contactList/contactList.html:
+   42  	        		<tr><td><a href="/call/{{_id}}"><i class="green  circle icon"></i><span class="recentName">{{name}} </span><br>{{extension}}</a></td>
+   43  	        		<td class='center aligned directoryPhone'><a href="/call/{{_id}}"><h1><i class=" canCall call icon"></i></h1></a></td>
+   44: 	        		<td class='availableCell center aligned favAdd' id='{{extension}}'><h1 class='notAvailable'>★</h1></td></tr>
+   45  	        		{{/if}}
+   46  	        		{{#if not available favorite}}
+   47  	        		<tr>
+   48  	        		<td><a href="/call/{{_id}}"><i class="red minus circle icon"></i><span class="recentName">{{name}} </span><br>{{extension}}</a></td>
+   49: 	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+   50  	        		<td class='availableCell center aligned favAdd' id='{{extension}}'><h1 class='blackStar'>★</h1></td></tr>
+   51  	        		{{/if}}
+   ..
+   53  	        		<tr>
+   54  	        		<td><a href="/call/{{_id}}"><i class="red minus circle icon"></i><span class="recentName">{{name}} </span> <br>{{extension}}</a></td>
+   55: 	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+   56: 	        		<td class='availableCell center aligned favAdd' id='{{extension}}'><h1 class='notAvailable'>★</h1></td></tr>
+   57  	        		{{/if}}
+   58  
+   ..
+   76  	                		<tr><td><a href="/call/{{_id}}"><i class="green  circle icon"></i><span class="recentName">{{name}} </span><br>{{extension}}</a></td>
+   77  	                		<td class='center aligned directoryPhone'><a href="/call/{{_id}}"><h1><i class=" canCall call icon"></i></h1></a></td>
+   78: 	                		<td class='availableCell center aligned favAdd' id='{{extension}}'><h1 class='notAvailable'>★</h1></td></tr>
+   79  	                		{{/if}}
+   80  	                		{{#if not available favorite}}
+   81  	                		<tr>
+   82  	                		<td><a href="/call/{{_id}}"><i class="red minus circle icon"></i><span class="recentName">{{name}} </span><br>{{extension}}</a></td>
+   83: 	                		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+   84  	                		<td class='availableCell center aligned favAdd' id='{{extension}}'><h1 class='blackStar'>★</h1></td></tr>
+   85  	                		{{/if}}
+   ..
+   87  	                		<tr>
+   88  	                		<td><a href="/call/{{_id}}"><i class="red minus circle icon"></i><span class="recentName">{{name}} </span> <br>{{extension}}</a></td>
+   89: 	                		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+   90: 	                		<td class='availableCell center aligned favAdd' id='{{extension}}'><h1 class='notAvailable'>★</h1></td></tr>
+   91  	                		{{/if}}
+   92  
+   ..
+  116  	        		<tr><td class='recentName'><a href="/call/{{_id}}"><i class="green  circle icon"></i>{{name}} <br>{{extension}}</a></td>
+  117  	        		<td class='center aligned'><h1><i class="  call icon"></i></h1></td>
+  118: 	        		<td class='availableCell center aligned favAdd' id='{{extension}}'><h1 class='notAvailable'>★</h1></td></tr>
+  119  	        		{{/if}}
+  120  	        		{{#if not available favorite}}
+  121  	        		<tr>
+  122  	        		<td class='recentName'><a href="/call/{{_id}}"><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</a></td>
+  123: 	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+  124  	        		<td class='availableCell center aligned favAdd' id='{{extension}}'><h1 class='blackStar'>★</h1></td></tr>
+  125  	        		{{/if}}
+  ...
+  127  	        		<tr>
+  128  	        		<td class='recentName'><a href="/call/{{_id}}"><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</a></td>
+  129: 	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+  130: 	        		<td class='availableCell center aligned favAdd' id='{{extension}}'><h1 class='notAvailable'>★</h1></td></tr>
+  131  	        		{{/if}}
+  132  
+  ...
+  148  	        		<tr><td class='recentName'><a href="/call/{{_id}}"><i class="green  circle icon"></i>{{name}} <br>{{extension}}</a></td>
+  149  	        		<td class='center aligned'><h1><i class="  call icon"></i></h1></td>
+  150: 	        		<td class='availableCell center aligned favAdd' id='{{extension}}'><h1 class='notAvailable'>★</h1></td></tr>
+  151  	        		{{/if}}
+  152  	        		{{#if not available favorite}}
+  153  	        		<tr>
+  154  	        		<td class='recentName'><a href="/call/{{_id}}"><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</a></td>
+  155: 	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+  156  	        		<td class='availableCell center aligned favAdd' id='{{extension}}'><h1 class='blackStar'>★</h1></td></tr>
+  157  	        		{{/if}}
+  ...
+  159  	        		<tr>
+  160  	        		<td class='recentName'><a href="/call/{{_id}}"><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</a></td>
+  161: 	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+  162: 	        		<td class='availableCell center aligned favAdd' id='{{extension}}'><h1 class='notAvailable'>★</h1></td></tr>
+  163  	        		{{/if}}
+  164  
+  ...
+  199  	        		<tr>
+  200  	        		<td class='recentName'><a href="/call/{{_id}}"><i class="red minus circle icon"></i><span class="recentName">{{name}} </span><br>{{extension}}</a></td>
+  201: 	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+  202  	        		<td class='availableCell center aligned favAdd' id='{{extension}}'><h1 class='blackStar'>★</h1></td></tr>
+  203  	        		{{/if}}
+  ...
+  217  	        		<!-- {{else}}
+  218  	        		<td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>
+  219: 	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+  220: 	        		<td class='availableCell center aligned'><h1 class='notAvailable'>★</h1></td> -->
+  221  	        		{{/if}}
+  222  	        		{{#if not available favorite }}
+  223  	        		<tr><td><a href="/call/{{_id}}"><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</a></td>
+  224: 	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+  225  	        		<td class='availableCell center aligned favAdd' id='{{extension}}'><h1 class='blackStar'>★</h1></td></tr>
+  226  	        		{{/if}}
+  ...
+  258  					<tr>
+  259  	           			<td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>
+  260: 	           			<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+  261: 	           			<td class='availableCell center aligned'><h1 class='notAvailable'>★</h1></td>
+  262  	           		</tr>
+  263  	           			{{/if}}
+  ...
+  277  	        		{{else}}
+  278  	        		<td><i class="red minus circle icon"></i>{{name}} <br>{{extension}}</td>
+  279: 	        		<td class='center aligned'><h1><i class=" notAvailable call icon"></i></h1></td>
+  280: 	        		<td class='availableCell center aligned'><h1 class='notAvailable'>★</h1></td>
+  281  	        		{{/if}}
+  282  	        	</tr>
+
+/Users/acase/code/meteor/Mustang/client/views/contactList/contactList.js:
+   90  	 cloudUsers.update({_id:this._id},{$set:{name:this.name, extension:this.extension,available:this.available,favorite:false}});
+   91  	 $('#'+this.extension+'').removeClass('blackStar');
+   92: 	 $('#'+this.extension+'').addClass('notAvailable');
+   93  	}
+   94  	else if (this.favorite==false){
+   95  
+   96  		cloudUsers.update({_id:this._id},{$set:{name:this.name, extension:this.extension,available:this.available,favorite:true}});
+   97: 		$('#'+this.extension+'').removeClass('notAvailable');
+   98  		$('#'+this.extension+'').addClass('blackStar');
+   99  
+
+27 matches across 3 files

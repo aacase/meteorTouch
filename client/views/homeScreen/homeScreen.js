@@ -164,6 +164,21 @@ Template['homeScreen'].events({
 	  	Session.set('directory', false);
 	  	Session.set('location', 'Call');
 	  }
+	  else if (Session.get('launchMove')){
+	  	Session.set('homeScreen', true);
+	  	Session.set('backScreen', false);
+	  	Session.set('recents', false);
+	  	Session.set('myInfo', false);
+	  	Session.set('favorites', false);
+	  	Session.set('call', false);
+	  		 // Session.set('callUI', true);
+	  	Session.set('directory', false);
+	  	Session.set('location', 'Home');
+	  	Session.set('launchMove', false);
+	  	Session.set('standardMenu', true);
+	  	Session.set('move', false);
+	  	Router.go('/launch')
+	  }
 	  else{
 	 Session.set('homeScreen', true);
 	 Session.set('myInfo', false);
